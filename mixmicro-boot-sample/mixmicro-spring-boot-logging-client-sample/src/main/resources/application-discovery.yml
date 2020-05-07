@@ -1,0 +1,19 @@
+mixmicro:
+  boot:
+    logging:
+      format-console-log-json: true
+      report-number-of-request-log: 2
+      discovery:
+        service-id: mixmicro-spring-boot-sample-logging-admin
+        username: user
+        password: 123456
+      ignore-paths:
+        - /actuator/health
+
+# Eureka Config
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: dev-middle.hgj.net:8848
+        namespace: 03a1c325-7c9b-41bf-b4f6-404a0cf22d5a

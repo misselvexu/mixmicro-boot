@@ -37,18 +37,18 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 
 import java.util.List;
 
-import static xyz.vopen.framework.boot.autoconfigure.oauth.ApiBootOauthProperties.API_BOOT_OAUTH_PREFIX;
+import static xyz.vopen.framework.boot.autoconfigure.oauth.MixmicroBootOauthProperties.MIXMICRO_BOOT_OAUTH_PREFIX;
 
 /**
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  *     <p>DateTime：2019-07-13 09:35
  */
 @Configuration
-@EnableConfigurationProperties(ApiBootOauthProperties.class)
+@EnableConfigurationProperties(MixmicroBootOauthProperties.class)
 @EnableAuthorizationServer
 @ConditionalOnBean(RedisConnectionFactory.class)
 @ConditionalOnClass({MixmicroBootAuthorizationServerConfiguration.class})
-@ConditionalOnProperty(prefix = API_BOOT_OAUTH_PREFIX, name = "away", havingValue = "redis")
+@ConditionalOnProperty(prefix = MIXMICRO_BOOT_OAUTH_PREFIX, name = "away", havingValue = "redis")
 @AutoConfigureAfter(RedisAutoConfiguration.class)
 public class MixmicroBootAuthorizationServerRedisAutoConfiguration
     extends MixmicroBootAuthorizationServerAutoConfiguration {
@@ -59,14 +59,14 @@ public class MixmicroBootAuthorizationServerRedisAutoConfiguration
    * constructor instance redis connection factory
    *
    * @param objectProvider Mixmicro Boot Token Granter
-   * @param apiBootOauthProperties Mixmicro Boot Oauth Properties
+   * @param mixmicroBootOauthProperties Mixmicro Boot Oauth Properties
    * @param redisConnectionFactory Redis Connection Factory
    */
   public MixmicroBootAuthorizationServerRedisAutoConfiguration(
       ObjectProvider<List<MixmicroBootOauthTokenGranter>> objectProvider,
-      ApiBootOauthProperties apiBootOauthProperties,
+      MixmicroBootOauthProperties mixmicroBootOauthProperties,
       RedisConnectionFactory redisConnectionFactory) {
-    super(objectProvider, apiBootOauthProperties);
+    super(objectProvider, mixmicroBootOauthProperties);
     this.redisConnectionFactory = redisConnectionFactory;
   }
 
@@ -79,7 +79,7 @@ public class MixmicroBootAuthorizationServerRedisAutoConfiguration
   @Override
   public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
     InMemoryClientDetailsServiceBuilder inMemoryClientDetailsServiceBuilder = clients.inMemory();
-    apiBootOauthProperties.getClients().stream()
+    mixmicroBootOauthProperties.getClients().stream()
         .forEach(
             client ->
                 inMemoryClientDetailsServiceBuilder

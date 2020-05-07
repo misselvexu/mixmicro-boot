@@ -35,7 +35,7 @@ import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
-import static xyz.vopen.framework.boot.autoconfigure.security.ApiBootSecurityProperties.API_BOOT_SECURITY_PREFIX;
+import static xyz.vopen.framework.boot.autoconfigure.security.MixmicroBootSecurityProperties.MIXMICRO_BOOT_SECURITY_PREFIX;
 
 /**
  * Mixmicro Boot SpringSecurity自动化封装配置内存的实现
@@ -46,20 +46,20 @@ import static xyz.vopen.framework.boot.autoconfigure.security.ApiBootSecurityPro
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@EnableConfigurationProperties(ApiBootSecurityProperties.class)
+@EnableConfigurationProperties(MixmicroBootSecurityProperties.class)
 @ConditionalOnClass(MixmicroBootWebSecurityConfiguration.class)
 @ConditionalOnProperty(
-    prefix = API_BOOT_SECURITY_PREFIX,
+    prefix = MIXMICRO_BOOT_SECURITY_PREFIX,
     name = "away",
     havingValue = "memory",
     matchIfMissing = true)
 public class MixmicroBootWebSecurityMemoryAutoConfiguration extends MixmicroBootWebSecurityAutoConfiguration {
   public MixmicroBootWebSecurityMemoryAutoConfiguration(
-      ApiBootSecurityProperties apiBootSecurityProperties,
+      MixmicroBootSecurityProperties mixmicroBootSecurityProperties,
       ObjectProvider<AccessDeniedHandler> accessDeniedHandler,
       ObjectProvider<AuthenticationEntryPoint> authenticationEntryPoint) {
     super(
-        apiBootSecurityProperties,
+        mixmicroBootSecurityProperties,
         accessDeniedHandler.getIfAvailable(),
         authenticationEntryPoint.getIfAvailable());
   }
@@ -68,7 +68,7 @@ public class MixmicroBootWebSecurityMemoryAutoConfiguration extends MixmicroBoot
   @Bean
   protected UserDetailsService userDetailsService() {
     InMemoryUserDetailsManager memoryUserDetails = new InMemoryUserDetailsManager();
-    List<SecurityUser> users = apiBootSecurityProperties.getUsers();
+    List<SecurityUser> users = mixmicroBootSecurityProperties.getUsers();
     if (!ObjectUtils.isEmpty(users)) {
       for (SecurityUser securityUser : users) {
         memoryUserDetails.createUser(

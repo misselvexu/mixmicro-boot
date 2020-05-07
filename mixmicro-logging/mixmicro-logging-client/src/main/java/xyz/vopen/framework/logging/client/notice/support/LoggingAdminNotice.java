@@ -4,7 +4,7 @@ import xyz.vopen.framework.logging.client.LoggingFactoryBean;
 import xyz.vopen.framework.logging.client.admin.report.LoggingAdminReport;
 import xyz.vopen.framework.logging.client.cache.LoggingCache;
 import xyz.vopen.framework.logging.client.notice.LoggingNotice;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import xyz.vopen.framework.logging.core.ReportAway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,18 +43,18 @@ public class LoggingAdminNotice implements LoggingNotice {
    * LoggingCache} support， wait for {@link
    * LoggingReportScheduled} execute report
    *
-   * @param minBoxLog Mixmicro Boot Log
+   * @param mixmicroLog Mixmicro Boot Log
    */
   @Override
-  public void notice(MinBoxLog minBoxLog) {
+  public void notice(MixmicroLog mixmicroLog) {
     ReportAway reportAway = factoryBean.getReportAway();
     switch (reportAway) {
       case just:
         LoggingAdminReport loggingAdminReport = factoryBean.getLoggingAdminReport();
-        loggingAdminReport.report(Arrays.asList(minBoxLog));
+        loggingAdminReport.report(Arrays.asList(mixmicroLog));
         break;
       case timing:
-        factoryBean.getLoggingCache().cache(minBoxLog);
+        factoryBean.getLoggingCache().cache(mixmicroLog);
         logger.debug("Cache Request Logging Complete.");
         break;
     }

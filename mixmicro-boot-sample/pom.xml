@@ -2,21 +2,53 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <groupId>xyz.vopen.framework</groupId>
-        <artifactId>mixmicro-boot</artifactId>
-        <version>${revision}</version>
-    </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>xyz.vopen.framework</groupId>
     <artifactId>mixmicro-boot-sample</artifactId>
+    <version>2020.04.RELEASE</version>
     <packaging>pom</packaging>
 
     <name>Mixmicro+ Boot Samples </name>
 
     <modules>
+        <module>mixmicro-logging-admin-sample</module>
+        <module>mixmicro-logging-client-sample</module>
 
+        <module>mixmicro-spring-boot-logging-admin-sample</module>
+        <module>mixmicro-spring-boot-logging-client-sample</module>
     </modules>
 
+    <properties>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <jdk.version>1.8</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-dependencies</artifactId>
+                <version>2020.04.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

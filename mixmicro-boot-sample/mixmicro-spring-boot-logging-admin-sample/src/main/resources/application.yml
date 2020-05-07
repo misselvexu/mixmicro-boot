@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: mixmicro-spring-boot-sample-logging-admin
+  profiles:
+    active: discovery
+
+  security:
+    user:
+      name: user
+      password: 123456
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/mixmicro-logging
+
+server:
+  port: 9090
+
+
+mixmicro:
+  boot:
+    logging:
+      admin:
+        # 显示上报日志
+        show-console-report-log: true
+        # 格式化上报日志
+        format-console-log-json: true

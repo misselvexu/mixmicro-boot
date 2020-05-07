@@ -18,7 +18,7 @@
 package xyz.vopen.framework.logging.client.admin.report;
 
 import xyz.vopen.framework.logging.client.MinBoxLoggingException;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 
 import java.util.List;
 
@@ -41,5 +41,5 @@ public interface LoggingAdminReport {
    * @param logs Request Logs
    * @throws MinBoxLoggingException Logging Exception
    */
-  void report(List<MinBoxLog> logs) throws MinBoxLoggingException;
+  void report(List<MixmicroLog> logs) throws MinBoxLoggingException;
 }

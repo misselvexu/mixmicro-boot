@@ -18,7 +18,7 @@
 package xyz.vopen.framework.logging.client.cache;
 
 import xyz.vopen.framework.logging.client.MinBoxLoggingException;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public interface LoggingCache {
    * @param log MinBoxLog
    * @throws MinBoxLoggingException Logging Exception
    */
-  void cache(MinBoxLog log) throws MinBoxLoggingException;
+  void cache(MixmicroLog log) throws MinBoxLoggingException;
 
   /**
    * Get Any One MinBoxLog
@@ -42,7 +42,7 @@ public interface LoggingCache {
    * @return MinBoxLog
    * @throws MinBoxLoggingException Logging Exception
    */
-  MinBoxLog getAnyOne() throws MinBoxLoggingException;
+  MixmicroLog getAnyOne() throws MinBoxLoggingException;
 
   /**
    * Gets the specified number of MinBoxLog
@@ -51,7 +51,7 @@ public interface LoggingCache {
    * @return MinBoxLog Collection
    * @throws MinBoxLoggingException Logging Exception
    */
-  List<MinBoxLog> getLogs(int count) throws MinBoxLoggingException;
+  List<MixmicroLog> getLogs(int count) throws MinBoxLoggingException;
 
   /**
    * Gets All Of MinBoxLog
@@ -59,5 +59,5 @@ public interface LoggingCache {
    * @return MinBoxLog Collection
    * @throws MinBoxLoggingException Logging Exception
    */
-  List<MinBoxLog> getAll() throws MinBoxLoggingException;
+  List<MixmicroLog> getAll() throws MinBoxLoggingException;
 }

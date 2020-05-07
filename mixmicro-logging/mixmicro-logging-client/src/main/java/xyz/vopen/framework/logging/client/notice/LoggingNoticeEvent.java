@@ -18,7 +18,7 @@
 package xyz.vopen.framework.logging.client.notice;
 
 import lombok.Getter;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.springframework.context.ApplicationEvent;
 
 /**
@@ -29,9 +29,9 @@ import org.springframework.context.ApplicationEvent;
 @Getter
 public class LoggingNoticeEvent extends ApplicationEvent {
   /** Mixmicro Boot Logging Object */
-  private MinBoxLog log;
+  private MixmicroLog log;
 
-  public LoggingNoticeEvent(Object source, MinBoxLog log) {
+  public LoggingNoticeEvent(Object source, MixmicroLog log) {
     super(source);
     this.log = log;
   }

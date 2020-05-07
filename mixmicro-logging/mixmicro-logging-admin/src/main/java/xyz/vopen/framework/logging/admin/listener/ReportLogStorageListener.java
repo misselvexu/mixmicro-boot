@@ -23,7 +23,7 @@ import xyz.vopen.framework.logging.admin.event.ReportLogEvent;
 import xyz.vopen.framework.logging.admin.storage.LoggingStorage;
 import xyz.vopen.framework.logging.core.GlobalLog;
 import xyz.vopen.framework.logging.core.LoggingClientNotice;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEvent;
@@ -100,7 +100,7 @@ public class ReportLogStorageListener implements SmartApplicationListener {
 
       // save logs
       if (!ObjectUtils.isEmpty(notice.getLoggers())) {
-        for (MinBoxLog log : notice.getLoggers()) {
+        for (MixmicroLog log : notice.getLoggers()) {
           String requestLogId = loggingStorage.insertLog(serviceDetailId, log);
           // save global logs
           saveGlobalLogs(requestLogId, log.getGlobalLogs());

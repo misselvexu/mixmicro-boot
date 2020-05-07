@@ -19,7 +19,7 @@ package xyz.vopen.framework.logging.client.tracer.support;
 
 import xyz.vopen.framework.logging.client.MinBoxLoggingException;
 import xyz.vopen.framework.logging.client.tracer.LoggingTraceGenerator;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 
 import java.util.UUID;
 
@@ -32,7 +32,7 @@ public class LoggingDefaultTraceGenerator implements LoggingTraceGenerator {
   /**
    * Use UUID as the default traceId
    *
-   * @return {@link MinBoxLog#getTraceId()}
+   * @return {@link MixmicroLog#getTraceId()}
    * @throws MinBoxLoggingException Exception
    */
   @Override

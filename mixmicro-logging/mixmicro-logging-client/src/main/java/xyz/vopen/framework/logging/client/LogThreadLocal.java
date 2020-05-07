@@ -18,7 +18,7 @@
 package xyz.vopen.framework.logging.client;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 
 /**
  * Using threadLocal to store log objects in multithreaded situations
@@ -27,29 +27,29 @@ import xyz.vopen.framework.logging.core.MinBoxLog;
  */
 public class LogThreadLocal {
   /**
-   * The Request Logs Solve the problem of the {@link MinBoxLog} object of the child parent thread
+   * The Request Logs Solve the problem of the {@link MixmicroLog} object of the child parent thread
    *
    * @see TransmittableThreadLocal
-   * @see MinBoxLog
+   * @see MixmicroLog
    */
-  private static final TransmittableThreadLocal<MinBoxLog> LOGS = new TransmittableThreadLocal<>();
+  private static final TransmittableThreadLocal<MixmicroLog> LOGS = new TransmittableThreadLocal<>();
 
   /**
    * Get This Thread Mixmicro Boot Log Object Instance
    *
    * @return This Thread Mixmicro Boot Log
    */
-  public static MinBoxLog get() {
+  public static MixmicroLog get() {
     return LOGS.get();
   }
 
   /**
    * Set This Thread Mixmicro Boot Log Object Instance
    *
-   * @param minBoxLog This Thread Mixmicro Boot Log
+   * @param mixmicroLog This Thread Mixmicro Boot Log
    */
-  public static void set(MinBoxLog minBoxLog) {
-    LOGS.set(minBoxLog);
+  public static void set(MixmicroLog mixmicroLog) {
+    LOGS.set(mixmicroLog);
   }
 
   /** Remove This Thread Mixmicro Boot Log Object Instance */

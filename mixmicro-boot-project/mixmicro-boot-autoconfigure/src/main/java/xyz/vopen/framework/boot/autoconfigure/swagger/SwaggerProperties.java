@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-import static xyz.vopen.framework.boot.autoconfigure.swagger.SwaggerProperties.API_BOOT_SWAGGER_PREFIX;
+import static xyz.vopen.framework.boot.autoconfigure.swagger.SwaggerProperties.MIXMICRO_BOOT_SWAGGER_PREFIX;
 
 /**
  * swagger属性配置
@@ -14,24 +14,24 @@ import static xyz.vopen.framework.boot.autoconfigure.swagger.SwaggerProperties.A
  */
 @Data
 @Configuration
-@ConfigurationProperties(prefix = API_BOOT_SWAGGER_PREFIX)
+@ConfigurationProperties(prefix = MIXMICRO_BOOT_SWAGGER_PREFIX)
 public class SwaggerProperties {
   /** swagger配置前缀 */
-  public static final String API_BOOT_SWAGGER_PREFIX = "mixmicro.boot.swagger";
+  public static final String MIXMICRO_BOOT_SWAGGER_PREFIX = "mixmicro.boot.swagger";
   /** 是否开启文档，默认开启 */
   private boolean enable = true;
   /** swagger扫描本项目的base-package 扫描该package下的所有controller来生成文档 */
   private String basePackage;
   /** 文档标题 */
-  private String title = "ApiBoot快速集成Swagger文档";
+  private String title = "Integrate Swagger Plugin";
   /** 文档描述 */
-  private String description = "ApiBoot通过自动化配置快速集成Swagger2文档，仅需一个注解、一个依赖即可。";
+  private String description = "Integrate Swagger Plugin";
   /** 文档版本号 */
-  private String version = "2.2.3-SNAPSHOT";
+  private String version = "2020.04.RELEASE";
   /** 文档版权 */
-  private String license = "ApiBoot";
+  private String license = "Mixmicro+ Boot";
   /** 文档版权路径 */
-  private String licenseUrl = "https://github.com/hengboy/api-boot";
+  private String licenseUrl = "http://vopen.xyz";
   /** 文档编写联系人信息 */
   private Contact contact = new Contact();
   /** 文档接口访问时认证信息 */

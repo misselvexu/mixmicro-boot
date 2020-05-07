@@ -18,7 +18,7 @@
 package xyz.vopen.framework.logging.admin.storage;
 
 import xyz.vopen.framework.logging.core.GlobalLog;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import xyz.vopen.framework.logging.core.response.LoggingResponse;
 import xyz.vopen.framework.logging.core.response.ServiceResponse;
 
@@ -49,7 +49,7 @@ public interface LoggingStorage {
    * @return request log id
    * @throws SQLException Sql Exception
    */
-  String insertLog(String serviceDetailId, MinBoxLog log) throws SQLException;
+  String insertLog(String serviceDetailId, MixmicroLog log) throws SQLException;
 
   /**
    * Insert ServiceDetail To DataBase

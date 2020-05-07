@@ -21,7 +21,7 @@ import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import xyz.vopen.framework.logging.client.LogThreadLocal;
 import xyz.vopen.framework.logging.client.LoggingConstant;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +36,7 @@ public class LoggingOpenFeignInterceptor implements RequestInterceptor {
 
   @Override
   public void apply(RequestTemplate requestTemplate) {
-    MinBoxLog log = LogThreadLocal.get();
+    MixmicroLog log = LogThreadLocal.get();
     requestTemplate.header(LoggingConstant.HEADER_NAME_TRACE_ID, log.getTraceId());
     requestTemplate.header(LoggingConstant.HEADER_NAME_PARENT_SPAN_ID, log.getSpanId());
     logger.debug(

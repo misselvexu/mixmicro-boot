@@ -40,10 +40,10 @@ import java.util.List;
  */
 @Configuration
 @ConditionalOnClass(MixmicroBootAuthorizationServerConfiguration.class)
-@EnableConfigurationProperties(ApiBootOauthProperties.class)
+@EnableConfigurationProperties(MixmicroBootOauthProperties.class)
 @EnableAuthorizationServer
 @ConditionalOnProperty(
-    prefix = ApiBootOauthProperties.API_BOOT_OAUTH_PREFIX,
+    prefix = MixmicroBootOauthProperties.MIXMICRO_BOOT_OAUTH_PREFIX,
     name = "away",
     havingValue = "memory",
     matchIfMissing = true)
@@ -51,8 +51,8 @@ public class MixmicroBootAuthorizationMemoryServerAutoConfiguration
     extends MixmicroBootAuthorizationServerAutoConfiguration {
   public MixmicroBootAuthorizationMemoryServerAutoConfiguration(
       ObjectProvider<List<MixmicroBootOauthTokenGranter>> objectProvider,
-      ApiBootOauthProperties apiBootOauthProperties) {
-    super(objectProvider, apiBootOauthProperties);
+      MixmicroBootOauthProperties mixmicroBootOauthProperties) {
+    super(objectProvider, mixmicroBootOauthProperties);
   }
 
   /**
@@ -64,7 +64,7 @@ public class MixmicroBootAuthorizationMemoryServerAutoConfiguration
   @Override
   public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
     InMemoryClientDetailsServiceBuilder inMemoryClientDetailsServiceBuilder = clients.inMemory();
-    apiBootOauthProperties.getClients().stream()
+    mixmicroBootOauthProperties.getClients().stream()
         .forEach(
             client ->
                 inMemoryClientDetailsServiceBuilder

@@ -35,7 +35,7 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import javax.sql.DataSource;
 import java.util.List;
 
-import static xyz.vopen.framework.boot.autoconfigure.oauth.ApiBootOauthProperties.API_BOOT_OAUTH_PREFIX;
+import static xyz.vopen.framework.boot.autoconfigure.oauth.MixmicroBootOauthProperties.MIXMICRO_BOOT_OAUTH_PREFIX;
 
 /**
  * Mixmicro Boot 授权服务器Jdbc方式实现
@@ -44,11 +44,11 @@ import static xyz.vopen.framework.boot.autoconfigure.oauth.ApiBootOauthPropertie
  *     <p>DateTime：2019-03-14 16:55
  */
 @Configuration
-@EnableConfigurationProperties(ApiBootOauthProperties.class)
+@EnableConfigurationProperties(MixmicroBootOauthProperties.class)
 @EnableAuthorizationServer
 @ConditionalOnBean(DataSource.class)
 @ConditionalOnClass(MixmicroBootAuthorizationServerConfiguration.class)
-@ConditionalOnProperty(prefix = API_BOOT_OAUTH_PREFIX, name = "away", havingValue = "jdbc")
+@ConditionalOnProperty(prefix = MIXMICRO_BOOT_OAUTH_PREFIX, name = "away", havingValue = "jdbc")
 @AutoConfigureAfter(DataSourceAutoConfiguration.class)
 public class MixmicroBootAuthorizationServerJdbcAutoConfiguration
     extends MixmicroBootAuthorizationServerAutoConfiguration {
@@ -56,9 +56,9 @@ public class MixmicroBootAuthorizationServerJdbcAutoConfiguration
 
   public MixmicroBootAuthorizationServerJdbcAutoConfiguration(
       ObjectProvider<List<MixmicroBootOauthTokenGranter>> objectProvider,
-      ApiBootOauthProperties apiBootOauthProperties,
+      MixmicroBootOauthProperties mixmicroBootOauthProperties,
       DataSource dataSource) {
-    super(objectProvider, apiBootOauthProperties);
+    super(objectProvider, mixmicroBootOauthProperties);
     this.dataSource = dataSource;
   }
 

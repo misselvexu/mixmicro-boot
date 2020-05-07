@@ -24,7 +24,7 @@ import xyz.vopen.framework.logging.client.LoggingFactoryBean;
 import xyz.vopen.framework.logging.client.global.GlobalLoggingThreadLocal;
 import xyz.vopen.framework.logging.client.interceptor.LoggingAbstractInterceptor;
 import xyz.vopen.framework.logging.client.notice.LoggingNoticeEvent;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -76,7 +76,7 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
     if (checkIgnore(HttpRequestUtil.getUri(request))) {
       return true;
     }
-    MinBoxLog log = new MinBoxLog();
+    MixmicroLog log = new MixmicroLog();
     try {
       log.setRequestIp(HttpRequestUtil.getIp(request));
       log.setRequestUri(HttpRequestUtil.getUri(request));
@@ -121,7 +121,7 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
       throws Exception {
     try {
       // Get Current Thread Mixmicro Boot Log Instance
-      MinBoxLog log = LogThreadLocal.get();
+      MixmicroLog log = LogThreadLocal.get();
       if (!ObjectUtils.isEmpty(log)) {
         // set exception stack
         if (!ObjectUtils.isEmpty(ex)) {

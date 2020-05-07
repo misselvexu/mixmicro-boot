@@ -18,7 +18,7 @@ import merge from 'lodash/merge';
 
 const DEFAULT_CONFIG = {
     uiSettings: {
-        brand: '<img src="assets/img/apiboot-white.png">',
+        brand: '<img src="assets/img/icon-white.png">',
         rememberMeEnabled: true,
         externalViews: [],
         favicon: 'assets/img/favicon.ico',

@@ -19,7 +19,7 @@ package xyz.vopen.framework.logging.admin.storage;
 
 import com.alibaba.fastjson.JSON;
 import xyz.vopen.framework.logging.core.GlobalLog;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import xyz.vopen.framework.logging.core.response.LoggingResponse;
 import xyz.vopen.framework.logging.core.response.ServiceResponse;
 import org.slf4j.Logger;
@@ -113,7 +113,7 @@ public class LoggingDataSourceStorage implements LoggingStorage {
    * @throws SQLException SqlException
    */
   @Override
-  public String insertLog(String serviceDetailId, MinBoxLog log) throws SQLException {
+  public String insertLog(String serviceDetailId, MixmicroLog log) throws SQLException {
     Connection connection = getConnection();
     PreparedStatement ps = connection.prepareStatement(SQL_INSERT_LOG);
     String logId = UUID.randomUUID().toString();

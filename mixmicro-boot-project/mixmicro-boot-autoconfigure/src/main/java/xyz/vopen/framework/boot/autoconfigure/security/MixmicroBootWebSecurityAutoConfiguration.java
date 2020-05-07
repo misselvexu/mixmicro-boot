@@ -35,17 +35,17 @@ import java.util.List;
  */
 public class MixmicroBootWebSecurityAutoConfiguration extends MixmicroBootWebSecurityConfiguration {
   /** 注入ApiBoot安全属性 */
-  protected ApiBootSecurityProperties apiBootSecurityProperties;
+  protected MixmicroBootSecurityProperties mixmicroBootSecurityProperties;
   /** 异常处理 */
   private AccessDeniedHandler accessDeniedHandler;
   /** 端点处理 */
   private AuthenticationEntryPoint authenticationEntryPoint;
 
   public MixmicroBootWebSecurityAutoConfiguration(
-      ApiBootSecurityProperties apiBootSecurityProperties,
+      MixmicroBootSecurityProperties mixmicroBootSecurityProperties,
       AccessDeniedHandler accessDeniedHandler,
       AuthenticationEntryPoint authenticationEntryPoint) {
-    this.apiBootSecurityProperties = apiBootSecurityProperties;
+    this.mixmicroBootSecurityProperties = mixmicroBootSecurityProperties;
     this.accessDeniedHandler = accessDeniedHandler;
     this.authenticationEntryPoint = authenticationEntryPoint;
   }
@@ -59,10 +59,10 @@ public class MixmicroBootWebSecurityAutoConfiguration extends MixmicroBootWebSec
   protected List<String> configureIgnoreUrls() {
     List<String> ignoringUrls = new ArrayList<>();
     // 默认排除路径
-    ignoringUrls.addAll(Arrays.asList(ApiBootSecurityProperties.DEFAULT_IGNORE_URLS));
+    ignoringUrls.addAll(Arrays.asList(MixmicroBootSecurityProperties.DEFAULT_IGNORE_URLS));
     // 自定义排除的路径
-    if (!ObjectUtils.isEmpty(apiBootSecurityProperties.getIgnoringUrls())) {
-      ignoringUrls.addAll(Arrays.asList(apiBootSecurityProperties.getIgnoringUrls()));
+    if (!ObjectUtils.isEmpty(mixmicroBootSecurityProperties.getIgnoringUrls())) {
+      ignoringUrls.addAll(Arrays.asList(mixmicroBootSecurityProperties.getIgnoringUrls()));
     }
     return ignoringUrls;
   }
@@ -93,7 +93,7 @@ public class MixmicroBootWebSecurityAutoConfiguration extends MixmicroBootWebSec
    */
   @Override
   protected boolean disableHttpBasic() {
-    return apiBootSecurityProperties.isDisableHttpBasic();
+    return mixmicroBootSecurityProperties.isDisableHttpBasic();
   }
 
   /**
@@ -103,6 +103,6 @@ public class MixmicroBootWebSecurityAutoConfiguration extends MixmicroBootWebSec
    */
   @Override
   protected boolean disableCsrf() {
-    return apiBootSecurityProperties.isDisableCsrf();
+    return mixmicroBootSecurityProperties.isDisableCsrf();
   }
 }

@@ -19,7 +19,7 @@ package xyz.vopen.framework.logging.client.http.rest;
 
 import xyz.vopen.framework.logging.client.LogThreadLocal;
 import xyz.vopen.framework.logging.client.LoggingConstant;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpRequest;
@@ -51,7 +51,7 @@ public class LoggingRestTemplateInterceptor implements ClientHttpRequestIntercep
   @Override
   public ClientHttpResponse intercept(
       HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
-    MinBoxLog log = LogThreadLocal.get();
+    MixmicroLog log = LogThreadLocal.get();
     if (!ObjectUtils.isEmpty(log)) {
       request.getHeaders().add(LoggingConstant.HEADER_NAME_TRACE_ID, log.getTraceId());
       request.getHeaders().add(LoggingConstant.HEADER_NAME_PARENT_SPAN_ID, log.getSpanId());

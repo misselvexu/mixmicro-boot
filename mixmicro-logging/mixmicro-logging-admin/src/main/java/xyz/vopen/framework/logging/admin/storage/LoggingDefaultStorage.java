@@ -1,7 +1,7 @@
 package xyz.vopen.framework.logging.admin.storage;
 
 import xyz.vopen.framework.logging.core.GlobalLog;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import xyz.vopen.framework.logging.core.response.LoggingResponse;
 import xyz.vopen.framework.logging.core.response.ServiceResponse;
 
@@ -20,7 +20,7 @@ public class LoggingDefaultStorage implements LoggingStorage {
   }
 
   @Override
-  public String insertLog(String serviceDetailId, MinBoxLog log) throws SQLException {
+  public String insertLog(String serviceDetailId, MixmicroLog log) throws SQLException {
     return null;
   }
 

@@ -39,7 +39,7 @@ public class LoggingClientNotice implements Serializable {
   /** Report Time Millis */
   private Long reportTimeMillis = System.currentTimeMillis();
   /** Mixmicro Boot Logging Request Log */
-  private List<MinBoxLog> loggers = new ArrayList<>();
+  private List<MixmicroLog> loggers = new ArrayList<>();
 
   /**
    * Create new {@link LoggingClientNotice} instance
@@ -54,7 +54,7 @@ public class LoggingClientNotice implements Serializable {
       String clientServiceId,
       String clientServiceIp,
       Integer clientServicePort,
-      List<MinBoxLog> loggers) {
+      List<MixmicroLog> loggers) {
     LoggingClientNotice notice = new LoggingClientNotice();
     notice.setClientServiceId(clientServiceId);
     notice.setClientServiceIp(clientServiceIp);

@@ -19,7 +19,7 @@ package xyz.vopen.framework.logging.client.span.support;
 
 import xyz.vopen.framework.logging.client.MinBoxLoggingException;
 import xyz.vopen.framework.logging.client.span.LoggingSpanGenerator;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 
 import java.util.UUID;
 
@@ -32,7 +32,7 @@ public class LoggingDefaultSpanGenerator implements LoggingSpanGenerator {
   /**
    * Create New SpanId Use random uuid as default spanId
    *
-   * @return {@link MinBoxLog#getSpanId()}
+   * @return {@link MixmicroLog#getSpanId()}
    * @throws MinBoxLoggingException Exception
    */
   @Override

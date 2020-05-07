@@ -23,7 +23,7 @@ import xyz.vopen.framework.logging.client.MinBoxLoggingException;
 import xyz.vopen.framework.logging.client.admin.report.LoggingAdminReport;
 import xyz.vopen.framework.logging.client.cache.LoggingCache;
 import xyz.vopen.framework.logging.core.LoggingClientNotice;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import xyz.vopen.framework.logging.core.response.ReportResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,7 +72,7 @@ public class LoggingAdminReportSupport implements LoggingAdminReport, Disposable
           "Not set 【LoggingAdminDiscovery】in LoggingFactoryBean，don't invoke report request logs.");
       return;
     }
-    List<MinBoxLog> logs = new ArrayList<>();
+    List<MixmicroLog> logs = new ArrayList<>();
     LoggingCache loggingCache = factoryBean.getLoggingCache();
     Integer numberOfRequestLog = factoryBean.getNumberOfRequestLog();
     try {
@@ -95,7 +95,7 @@ public class LoggingAdminReportSupport implements LoggingAdminReport, Disposable
    * @throws MinBoxLoggingException Logging Exception
    */
   @Override
-  public void report(List<MinBoxLog> logs) throws MinBoxLoggingException {
+  public void report(List<MixmicroLog> logs) throws MinBoxLoggingException {
     if (ObjectUtils.isEmpty(logs)) {
       logger.warn("Don't have report request logs.");
       return;
@@ -154,7 +154,7 @@ public class LoggingAdminReportSupport implements LoggingAdminReport, Disposable
   @Override
   public void destroy() throws Exception {
     // get all cache logs
-    List<MinBoxLog> logs = factoryBean.getLoggingCache().getAll();
+    List<MixmicroLog> logs = factoryBean.getLoggingCache().getAll();
     // report to admin
     report(logs);
     logger.debug(

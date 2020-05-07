@@ -87,7 +87,7 @@ public class LoggingAdminFactoryBean implements ApplicationContextAware {
     /** page title */
     private String title = "MinBox Logging Admin";
     /** Mixmicro Boot white logo */
-    private String brand = "<img src=\"assets/img/apiboot-white.png\">";
+    private String brand = "<img src=\"assets/img/icon-white.png\">";
     /** notification filter enable */
     private boolean notificationFilterEnabled;
     /** remember me enabled */

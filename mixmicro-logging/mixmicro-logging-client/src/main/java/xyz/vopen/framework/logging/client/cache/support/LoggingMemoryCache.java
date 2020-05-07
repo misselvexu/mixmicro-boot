@@ -19,7 +19,7 @@ package xyz.vopen.framework.logging.client.cache.support;
 
 import xyz.vopen.framework.logging.client.MinBoxLoggingException;
 import xyz.vopen.framework.logging.client.cache.LoggingCache;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.springframework.util.ObjectUtils;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class LoggingMemoryCache implements LoggingCache {
   /** Cache MinBoxLog Map For Batch Report */
-  private static final ConcurrentMap<String, MinBoxLog> CACHE_LOGS = new ConcurrentHashMap();
+  private static final ConcurrentMap<String, MixmicroLog> CACHE_LOGS = new ConcurrentHashMap();
 
   /**
    * Cache Single MinBoxLog
@@ -45,7 +45,7 @@ public class LoggingMemoryCache implements LoggingCache {
    * @throws MinBoxLoggingException Logging Exception
    */
   @Override
-  public void cache(MinBoxLog log) throws MinBoxLoggingException {
+  public void cache(MixmicroLog log) throws MinBoxLoggingException {
     if (!ObjectUtils.isEmpty(log)) {
       CACHE_LOGS.put(UUID.randomUUID().toString(), log);
     }
@@ -58,8 +58,8 @@ public class LoggingMemoryCache implements LoggingCache {
    * @throws MinBoxLoggingException Logging Exception
    */
   @Override
-  public MinBoxLog getAnyOne() throws MinBoxLoggingException {
-    List<MinBoxLog> logs = get(0);
+  public MixmicroLog getAnyOne() throws MinBoxLoggingException {
+    List<MixmicroLog> logs = get(0);
     return logs.size() > 0 ? logs.get(0) : null;
   }
 
@@ -71,7 +71,7 @@ public class LoggingMemoryCache implements LoggingCache {
    * @throws MinBoxLoggingException Logging Exception
    */
   @Override
-  public List<MinBoxLog> getLogs(int count) throws MinBoxLoggingException {
+  public List<MixmicroLog> getLogs(int count) throws MinBoxLoggingException {
     if (CACHE_LOGS.size() >= count) {
       return get(count);
     }
@@ -85,7 +85,7 @@ public class LoggingMemoryCache implements LoggingCache {
    * @throws MinBoxLoggingException Logging Exception
    */
   @Override
-  public List<MinBoxLog> getAll() throws MinBoxLoggingException {
+  public List<MixmicroLog> getAll() throws MinBoxLoggingException {
     return get(null);
   }
 
@@ -96,8 +96,8 @@ public class LoggingMemoryCache implements LoggingCache {
    * @return MinBoxLog Collection
    * @throws MinBoxLoggingException Logging Exception
    */
-  private List<MinBoxLog> get(Integer count) throws MinBoxLoggingException {
-    List<MinBoxLog> logs = new ArrayList();
+  private List<MixmicroLog> get(Integer count) throws MinBoxLoggingException {
+    List<MixmicroLog> logs = new ArrayList();
     Iterator<String> iterator = CACHE_LOGS.keySet().iterator();
     int index = 0;
     while (iterator.hasNext()) {

@@ -1,6 +1,6 @@
 package xyz.vopen.framework.logging.client.admin.report.retry;
 
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 
 import java.util.List;
 
@@ -11,23 +11,23 @@ import java.util.List;
  */
 public interface LoggingReportRetry {
   /**
-   * Add {@link MinBoxLog} to retry log collection
+   * Add {@link MixmicroLog} to retry log collection
    *
-   * @param minBoxLog {@link MinBoxLog}
+   * @param mixmicroLog {@link MixmicroLog}
    */
-  void addToRetryCollection(MinBoxLog minBoxLog);
+  void addToRetryCollection(MixmicroLog mixmicroLog);
 
   /**
-   * Add {@link MinBoxLog} list to retry log collection
+   * Add {@link MixmicroLog} list to retry log collection
    *
-   * @param minBoxLogs {@link MinBoxLog}
+   * @param mixmicroLogs {@link MixmicroLog}
    */
-  void addToRetryCollection(List<MinBoxLog> minBoxLogs);
+  void addToRetryCollection(List<MixmicroLog> mixmicroLogs);
 
   /**
-   * Get all {@link MinBoxLog} from retry collection
+   * Get all {@link MixmicroLog} from retry collection
    *
-   * @return {@link MinBoxLog}
+   * @return {@link MixmicroLog}
    */
-  List<MinBoxLog> getAllRetryLogs();
+  List<MixmicroLog> getAllRetryLogs();
 }

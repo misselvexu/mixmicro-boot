@@ -17,7 +17,7 @@
 
 package xyz.vopen.framework.logging.client.notice;
 
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.springframework.core.Ordered;
 
 /**
@@ -29,7 +29,7 @@ public interface LoggingNotice extends Ordered {
   /**
    * Local Notice Mixmicro Boot Log Instance
    *
-   * @param minBoxLog Log object for each HTTP request
+   * @param mixmicroLog Log object for each HTTP request
    */
-  void notice(MinBoxLog minBoxLog);
+  void notice(MixmicroLog mixmicroLog);
 }

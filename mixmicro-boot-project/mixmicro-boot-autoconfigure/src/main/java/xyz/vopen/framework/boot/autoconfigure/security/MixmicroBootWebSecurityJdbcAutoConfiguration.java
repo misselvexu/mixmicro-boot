@@ -46,19 +46,19 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@EnableConfigurationProperties(ApiBootSecurityProperties.class)
+@EnableConfigurationProperties(MixmicroBootSecurityProperties.class)
 @ConditionalOnClass(MixmicroBootWebSecurityConfiguration.class)
 @ConditionalOnBean(DataSource.class)
-@ConditionalOnProperty(prefix = ApiBootSecurityProperties.API_BOOT_SECURITY_PREFIX, name = "away", havingValue = "jdbc")
+@ConditionalOnProperty(prefix = MixmicroBootSecurityProperties.MIXMICRO_BOOT_SECURITY_PREFIX, name = "away", havingValue = "jdbc")
 @AutoConfigureAfter(DataSourceAutoConfiguration.class)
 public class MixmicroBootWebSecurityJdbcAutoConfiguration extends MixmicroBootWebSecurityAutoConfiguration {
 
   public MixmicroBootWebSecurityJdbcAutoConfiguration(
-      ApiBootSecurityProperties apiBootSecurityProperties,
+      MixmicroBootSecurityProperties mixmicroBootSecurityProperties,
       ObjectProvider<AccessDeniedHandler> accessDeniedHandler,
       ObjectProvider<AuthenticationEntryPoint> authenticationEntryPoint) {
     super(
-        apiBootSecurityProperties,
+        mixmicroBootSecurityProperties,
         accessDeniedHandler.getIfAvailable(),
         authenticationEntryPoint.getIfAvailable());
   }
@@ -77,7 +77,7 @@ public class MixmicroBootWebSecurityJdbcAutoConfiguration extends MixmicroBootWe
    */
   @Bean
   @ConditionalOnProperty(
-      prefix = ApiBootSecurityProperties.API_BOOT_SECURITY_PREFIX,
+      prefix = MixmicroBootSecurityProperties.MIXMICRO_BOOT_SECURITY_PREFIX,
       name = "enable-default-store-delegate",
       havingValue = "true",
       matchIfMissing = true)

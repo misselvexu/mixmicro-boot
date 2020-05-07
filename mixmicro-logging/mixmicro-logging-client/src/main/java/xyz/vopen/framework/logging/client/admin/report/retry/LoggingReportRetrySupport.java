@@ -1,6 +1,6 @@
 package xyz.vopen.framework.logging.client.admin.report.retry;
 
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.springframework.beans.factory.DisposableBean;
 
 import java.util.LinkedList;
@@ -15,20 +15,20 @@ public class LoggingReportRetrySupport implements LoggingReportRetry, Disposable
   /** the bean name of {@link LoggingReportRetrySupport} */
   public static final String BEAN_NAME = "loggingReportRetry";
   /** Log waiting for retry report */
-  private static final LinkedList<MinBoxLog> LOGS = new LinkedList<>();
+  private static final LinkedList<MixmicroLog> LOGS = new LinkedList<>();
 
   @Override
-  public void addToRetryCollection(MinBoxLog minBoxLog) {
-    LOGS.add(minBoxLog);
+  public void addToRetryCollection(MixmicroLog mixmicroLog) {
+    LOGS.add(mixmicroLog);
   }
 
   @Override
-  public void addToRetryCollection(List<MinBoxLog> minBoxLogs) {
-    LOGS.addAll(minBoxLogs);
+  public void addToRetryCollection(List<MixmicroLog> mixmicroLogs) {
+    LOGS.addAll(mixmicroLogs);
   }
 
   @Override
-  public List<MinBoxLog> getAllRetryLogs() {
+  public List<MixmicroLog> getAllRetryLogs() {
     return LOGS;
   }
 

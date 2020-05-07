@@ -18,7 +18,7 @@
 package xyz.vopen.framework.logging.core.response;
 
 import lombok.Data;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 
 import java.sql.Timestamp;
 
@@ -28,7 +28,7 @@ import java.sql.Timestamp;
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
 @Data
-public class LoggingResponse extends MinBoxLog {
+public class LoggingResponse extends MixmicroLog {
   /** The request logs create time */
   private Timestamp createTime;
   /** request header */

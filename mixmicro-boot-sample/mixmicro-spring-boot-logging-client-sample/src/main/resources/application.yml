@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: mixmicro-spring-boot-sample-logging-client
+  profiles:
+    active: discovery
+
+
+server:
+  port: 8080
+
+mixmicro:
+  boot:
+    logging:
+      format-console-log-json: true
+      show-console-log: true
+
+logging:
+  level:
+    xyz.vopen.framework: debug

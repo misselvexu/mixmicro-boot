@@ -3,7 +3,7 @@ package xyz.vopen.framework.logging.client.notice.support;
 import com.alibaba.fastjson.JSON;
 import xyz.vopen.framework.logging.client.LoggingFactoryBean;
 import xyz.vopen.framework.logging.client.notice.LoggingNotice;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import xyz.vopen.framework.util.JsonUtil;
@@ -28,17 +28,17 @@ public class LoggingLocalNotice implements LoggingNotice {
   /**
    * Output formatted log information according to configuration in console {@link LoggingNotice}
    *
-   * @param minBoxLog Mixmicro Boot Log
+   * @param mixmicroLog Mixmicro Boot Log
    */
   @Override
-  public void notice(MinBoxLog minBoxLog) {
+  public void notice(MixmicroLog mixmicroLog) {
     if (loggingFactoryBean.isShowConsoleLog()) {
       logger.info(
           "Request Uri：{}， Logging：\n{}",
-          minBoxLog.getRequestUri(),
+          mixmicroLog.getRequestUri(),
           loggingFactoryBean.isFormatConsoleLog()
-              ? JsonUtil.beautifyJson(minBoxLog)
-              : JSON.toJSONString(minBoxLog));
+              ? JsonUtil.beautifyJson(mixmicroLog)
+              : JSON.toJSONString(mixmicroLog));
     }
   }
 

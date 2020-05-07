@@ -43,7 +43,6 @@ import java.util.*;
  * 配置fastjson作为数据返回转换 如果没有配置spring.http.converters.preferred-json-mapper参数则使用该配置进行转换数据返回
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
- *     <p>DateTime：2019-03-14 17:00
  */
 @Configuration
 @ConditionalOnClass({FastJsonHttpMessageConverter.class, ConfigurationBuilder.class})
@@ -58,7 +57,7 @@ public class HttpMessageConverterAutoConfiguration {
   static Logger logger = LoggerFactory.getLogger(HttpMessageConverterAutoConfiguration.class);
   /** value filter package */
   private static final String[] VALUE_FILTER_PACKAGE =
-      new String[] {"org.minbox.framework.api.boot.plugin.http.converter.filter"};
+      new String[] {"xyz.vopen.framework.boot.plugin.http.converter.filter"};
 
   /** 注入bean工厂 */
   @Autowired private BeanFactory beanFactory;

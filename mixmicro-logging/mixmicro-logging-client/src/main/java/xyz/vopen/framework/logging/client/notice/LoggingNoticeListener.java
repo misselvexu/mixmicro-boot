@@ -17,7 +17,7 @@
 
 package xyz.vopen.framework.logging.client.notice;
 
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -56,7 +56,7 @@ public class LoggingNoticeListener implements SmartApplicationListener, Applicat
   @Async
   public void onApplicationEvent(ApplicationEvent event) {
     LoggingNoticeEvent loggingNoticeEvent = (LoggingNoticeEvent) event;
-    MinBoxLog minBoxLog = loggingNoticeEvent.getLog();
+    MixmicroLog mixmicroLog = loggingNoticeEvent.getLog();
     Map<String, LoggingNotice> noticeMap = applicationContext.getBeansOfType(LoggingNotice.class);
     if (ObjectUtils.isEmpty(noticeMap)) {
       logger.warn("Don't found LoggingNotice support instance list.");
@@ -64,7 +64,7 @@ public class LoggingNoticeListener implements SmartApplicationListener, Applicat
     }
     List<LoggingNotice> noticeList = new ArrayList<>(noticeMap.values());
     OrderComparator.sort(noticeList);
-    noticeList.forEach(loggingNotice -> loggingNotice.notice(minBoxLog));
+    noticeList.forEach(loggingNotice -> loggingNotice.notice(mixmicroLog));
   }
 
   @Override

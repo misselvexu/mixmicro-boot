@@ -18,7 +18,7 @@
 package xyz.vopen.framework.logging.client.tracer;
 
 import xyz.vopen.framework.logging.client.MinBoxLoggingException;
-import xyz.vopen.framework.logging.core.MinBoxLog;
+import xyz.vopen.framework.logging.core.MixmicroLog;
 
 /**
  * Mixmicro Boot Logging Tracer Create new traceId
@@ -29,7 +29,7 @@ public interface LoggingTraceGenerator {
   /**
    * Create new traceId
    *
-   * @return The Trace ID of http request {@link MinBoxLog#getTraceId()}
+   * @return The Trace ID of http request {@link MixmicroLog#getTraceId()}
    * @throws MinBoxLoggingException exception
    */
   String createTraceId() throws MinBoxLoggingException;

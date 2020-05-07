@@ -27,7 +27,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 
 import java.util.List;
 
-import static xyz.vopen.framework.boot.autoconfigure.oauth.ApiBootOauthProperties.API_BOOT_OAUTH_PREFIX;
+import static xyz.vopen.framework.boot.autoconfigure.oauth.MixmicroBootOauthProperties.MIXMICRO_BOOT_OAUTH_PREFIX;
 
 /**
  * ApiBoot授权服务器配置
@@ -38,13 +38,13 @@ import static xyz.vopen.framework.boot.autoconfigure.oauth.ApiBootOauthPropertie
 public class MixmicroBootAuthorizationServerAutoConfiguration
     extends MixmicroBootAuthorizationServerConfiguration {
   /** 注入属性配置 */
-  protected ApiBootOauthProperties apiBootOauthProperties;
+  protected MixmicroBootOauthProperties mixmicroBootOauthProperties;
 
   public MixmicroBootAuthorizationServerAutoConfiguration(
       ObjectProvider<List<MixmicroBootOauthTokenGranter>> objectProvider,
-      ApiBootOauthProperties apiBootOauthProperties) {
+      MixmicroBootOauthProperties mixmicroBootOauthProperties) {
     super(objectProvider);
-    this.apiBootOauthProperties = apiBootOauthProperties;
+    this.mixmicroBootOauthProperties = mixmicroBootOauthProperties;
   }
 
   /**
@@ -53,10 +53,10 @@ public class MixmicroBootAuthorizationServerAutoConfiguration
    * @return Jwt Access Token转换实例
    */
   @Bean
-  @ConditionalOnProperty(prefix = API_BOOT_OAUTH_PREFIX, name = "jwt.enable", havingValue = "true")
+  @ConditionalOnProperty(prefix = MIXMICRO_BOOT_OAUTH_PREFIX, name = "jwt.enable", havingValue = "true")
   public AccessTokenConverter jwtAccessTokenConverter() {
     JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-    converter.setSigningKey(apiBootOauthProperties.getJwt().getSignKey());
+    converter.setSigningKey(mixmicroBootOauthProperties.getJwt().getSignKey());
     return converter;
   }
 
@@ -67,7 +67,7 @@ public class MixmicroBootAuthorizationServerAutoConfiguration
    */
   @Bean
   @ConditionalOnProperty(
-      prefix = API_BOOT_OAUTH_PREFIX,
+      prefix = MIXMICRO_BOOT_OAUTH_PREFIX,
       name = "jwt.enable",
       havingValue = "false",
       matchIfMissing = true)
