@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>xyz.vopen.framework</groupId>
+        <artifactId>mixmicro-boot-parent</artifactId>
+        <version>${revision}</version>
+        <relativePath>../mixmicro-boot-parent</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>mixmicro-boot-autoconfigure</artifactId>
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+    </properties>
+    <dependencies>
+        <!--自动生成配置信息-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <!--Mixmicro-Boot Common-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-common</artifactId>
+        </dependency>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--reflections-->
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--spring web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--spring boot security-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--security oauth2-->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--jwt-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Oss Plugin-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-alibaba-oss</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Sms Plugin-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-alibaba-sms</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Security Plugin-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-security</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Oauth Plugin-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-oauth</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Quartz Plugin-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-quartz</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot DataSource Switch-->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-datasource-switch</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Resource Load-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-resource-load</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--Spring Boot Redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Plugin Message Push-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-message-push</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Mybatis Pageable-->
+        <dependency>
+            <groupId>xyz.vopen.framework</groupId>
+            <artifactId>mybatis-pageable-core</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Mybatis Enhance-->
+        <dependency>
+            <groupId>xyz.vopen.framework</groupId>
+            <artifactId>mybatis-enhance-core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>xyz.vopen.framework</groupId>
+            <artifactId>mybatis-enhance-dsl</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot RateLimiter-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-rate-limiter</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Nacos Config-->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro-Boot Mail-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-mail</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Mixmicro Logging-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-logging-client</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-logging-admin</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-logging-admin-ui</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-logging-spring-context</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--SpringCloud Openfeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+</project>

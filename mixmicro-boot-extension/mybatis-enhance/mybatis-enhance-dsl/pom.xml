@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>xyz.vopen.framework</groupId>
+        <artifactId>mybatis-enhance</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <version>1.0.0.RELEASE</version>
+    <artifactId>mybatis-enhance-dsl</artifactId>
+    <dependencies>
+        <!--添加mybatis-enhance依赖-->
+        <dependency>
+            <groupId>xyz.vopen.framework</groupId>
+            <artifactId>mybatis-enhance-core</artifactId>
+            <version>${mybatis.enhance.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!--Lombok dependence-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>

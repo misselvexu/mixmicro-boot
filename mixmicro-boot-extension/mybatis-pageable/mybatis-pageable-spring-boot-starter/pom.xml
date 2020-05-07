@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>xyz.vopen.framework</groupId>
+        <artifactId>mybatis-pageable</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mybatis-pageable-spring-boot-starter</artifactId>
+
+    <description>Mybatis Pageable Spring Boot Starter</description>
+
+    <dependencies>
+        <!--mybatis-pageable autoconfigure-->
+        <dependency>
+            <groupId>xyz.vopen.framework</groupId>
+            <artifactId>mybatis-pageable-spring-boot-autoconfigure</artifactId>
+            <version>${autoconfigure.version}</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>xyz.vopen.framework</groupId>
+        <artifactId>mixmicro-boot-parent</artifactId>
+        <version>${revision}</version>
+        <relativePath>../mixmicro-boot-parent</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>mixmicro-boot-plugins</artifactId>
+    <packaging>pom</packaging>
+    <description>
+        Mixmicro Boot Third Plugin Integration .
+    </description>
+
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+    </properties>
+
+    <modules>
+        <module>mixmicro-boot-plugin</module>
+        <module>mixmicro-boot-plugin-alibaba-oss</module>
+        <module>mixmicro-boot-plugin-alibaba-sms</module>
+        <module>mixmicro-boot-plugin-security</module>
+        <module>mixmicro-boot-plugin-oauth</module>
+        <module>mixmicro-boot-plugin-quartz</module>
+        <module>mixmicro-boot-plugin-datasource-switch</module>
+        <module>mixmicro-boot-plugin-resource-load</module>
+        <module>mixmicro-boot-plugin-http-converter</module>
+        <module>mixmicro-boot-plugin-message-push</module>
+        <module>mixmicro-boot-plugin-rate-limiter</module>
+        <module>mixmicro-boot-plugin-mail</module>
+    </modules>
+
+</project>

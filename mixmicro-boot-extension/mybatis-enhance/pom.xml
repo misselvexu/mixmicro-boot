@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>xyz.vopen.framework</groupId>
+    <artifactId>mybatis-enhance</artifactId>
+    <version>1.0.0.RELEASE</version>
+    <modules>
+        <module>mybatis-enhance-core</module>
+        <module>mybatis-enhance-dsl</module>
+        <module>mybatis-enhance-spring-boot-autoconfigure</module>
+        <module>mybatis-enhance-spring-boot-starter</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>Mybatis Enhance Extension</name>
+
+    <developers>
+        <developer>
+            <name>Elve.Xu</name>
+            <email>iskp.me@gmail.com</email>
+            <organization>github</organization>
+            <organizationUrl>https://github.com/misselvexu</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:https://github.com/misselvexu/mixmicro-boot/mixmicro-boot-extension/mybatis-enhance</connection>
+        <developerConnection>scm:git:https://github.com/misselvexu/mixmicro-boot/mixmicro-boot-extension/mybatis-enhance</developerConnection>
+        <url>https://github.com/misselvexu/mixmicro-boot/mixmicro-boot-extension/mybatis-enhance</url>
+        <tag>1.0.0.RELEASE</tag>
+    </scm>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!--MyBatis Version-->
+        <mybatis.version>3.4.4</mybatis.version>
+        <!--MyBatis With Spring Version-->
+        <mybatis.spring.version>1.3.1</mybatis.spring.version>
+        <!--Enhance Version-->
+        <mybatis.enhance.version>1.0.0.RELEASE</mybatis.enhance.version>
+        <!--Enhance Dsl Version-->
+        <mybatis.enhance.dsl.version>1.0.0.RELEASE</mybatis.enhance.dsl.version>
+        <!--Enhance Spring Boot AutoConfiguration Version-->
+        <enhance.spring.boot.autoconfigure.version>1.0.0.RELEASE</enhance.spring.boot.autoconfigure.version>
+        <!--MyBatis Pageable Auto Cut Page Version-->
+        <mybatis.pageable.version>1.0.0.RELEASE</mybatis.pageable.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    <build>
+        <plugins>
+            <!-- Source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+
+        <!-- Github Maven Center Repository -->
+        <profile>
+            <id>github</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <!-- Gpg Signature -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- HGJ Nexus Repository -->
+        <profile>
+            <id>hgj</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>nexus.releases</id>
+                    <url>http://nexus.hgj.net/repository/releases/</url>
+                    <uniqueVersion>false</uniqueVersion>
+                </repository>
+                <snapshotRepository>
+                    <id>nexus.snapshots</id>
+                    <url>http://nexus.hgj.net/repository/snapshots/</url>
+                    <uniqueVersion>false</uniqueVersion>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+</project>

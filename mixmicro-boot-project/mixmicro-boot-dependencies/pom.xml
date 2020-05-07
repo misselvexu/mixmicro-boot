@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>xyz.vopen.framework</groupId>
+        <artifactId>mixmicro-boot</artifactId>
+        <version>${revision}</version>
+        <relativePath>../..</relativePath>
+    </parent>
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mixmicro-boot-dependencies</artifactId>
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+        <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.RELEASE</spring.cloud.version>
+
+        <mixmicro.framework.version>2020.04.RELEASE</mixmicro.framework.version>
+        <mixmicro-logging.version>1.0.0.RELEASE</mixmicro-logging.version>
+
+        <druid.version>1.1.21</druid.version>
+        <druid.starter.version>1.1.21</druid.starter.version>
+        <fastjson.version>1.2.60</fastjson.version>
+        <security.oauth2.version>2.3.8.RELEASE</security.oauth2.version>
+        <spring.security.jwt.version>1.1.0.RELEASE</spring.security.jwt.version>
+        <reflections.version>0.9.11</reflections.version>
+        <guava.version>20.0</guava.version>
+        <swagger.version>2.9.2</swagger.version>
+        <alibaba.oss.version>2.8.3</alibaba.oss.version>
+        <aliyun.sdk.core.version>4.2.0</aliyun.sdk.core.version>
+        <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
+        <quartz.version>2.3.1</quartz.version>
+        <spring.tx.version>5.2.3.RELEASE</spring.tx.version>
+        <jpush-client.version>3.3.11</jpush-client.version>
+        <maven-plugin-api.version>3.6.1</maven-plugin-api.version>
+        <maven-plugin-annotations.version>3.6.0</maven-plugin-annotations.version>
+        <maven-plugin-plugin.version>3.6.0</maven-plugin-plugin.version>
+        <!--Builder Core Version-->
+        <code.builder.core.version>1.0.5.RELEASE</code.builder.core.version>
+        <mybatis.pageable.core.version>1.0.0.RELEASE</mybatis.pageable.core.version>
+        <mybatis.enhance.core.version>1.0.0.RELEASE</mybatis.enhance.core.version>
+        <mybatis.enhance.dsl.version>1.0.0.RELEASE</mybatis.enhance.dsl.version>
+        <mysema.codegen.version>0.6.8</mysema.codegen.version>
+
+        <!--Nacos Config-->
+        <nacos.config.version>0.2.3</nacos.config.version>
+
+        <!--Plugin Versions-->
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+        <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
+
+        <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!--SpringBoot Dependencies-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--SpringCloud Dependencies-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--Dependencies-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-dependencies</artifactId>
+                <version>${mixmicro.framework.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <!--Mixmicro-Boot Starter-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--Mixmicro-Boot AutoConfigure-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Converter-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-http-converter</artifactId>
+                <version>${project.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-http-converter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Common-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--fastJson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--druid-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--druid starter-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.starter.version}</version>
+            </dependency>
+
+            <!--reflections-->
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>${reflections.version}</version>
+            </dependency>
+            <!--google guava-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!--Spring Tx-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.tx.version}</version>
+            </dependency>
+
+            <!--Maven Plugin-->
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-plugin-api</artifactId>
+                <version>${maven-plugin-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugin-tools</groupId>
+                <artifactId>maven-plugin-annotations</artifactId>
+                <version>${maven-plugin-annotations.version}</version>
+            </dependency>
+
+
+            <!--Mixmicro-Boot Swagger-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-bean-validators</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-swagger</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Plugin-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Security-->
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${security.oauth2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${spring.security.jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-oauth</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-security-oauth-jwt</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot & Aliyun Oss-->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${alibaba.oss.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-alibaba-oss</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-alibaba-oss</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot & Aliyun Sms-->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyun.sdk.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+                <version>${aliyun.sdk.dysmsapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-alibaba-sms</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-alibaba-sms</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot & Quartz-->
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${quartz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-quartz</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-quartz</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot DataSource Switch-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-datasource-switch</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-datasource-switch</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Resource Load-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-resource-load</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-resource-load</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Message Push-->
+            <dependency>
+                <groupId>cn.jpush.api</groupId>
+                <artifactId>jpush-client</artifactId>
+                <version>${jpush-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-message-push</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-message-push</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Code Builder-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>code-builder-core</artifactId>
+                <version>${code.builder.core.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Mybatis Pageable-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mybatis-pageable-core</artifactId>
+                <version>${mybatis.pageable.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-mybatis-pageable</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Mybatis Enhance-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mybatis-enhance-core</artifactId>
+                <version>${mybatis.enhance.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mybatis-enhance-dsl</artifactId>
+                <version>${mybatis.enhance.dsl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-mybatis-enhance</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot RateLimiter-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-rate-limiter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-rate-limiter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Codegen-->
+            <dependency>
+                <groupId>com.mysema.codegen</groupId>
+                <artifactId>codegen</artifactId>
+                <version>${mysema.codegen.version}</version>
+            </dependency>
+
+            <!--Nacos Config-->
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>${nacos.config.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Mail-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-mail</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-mail</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-dm</artifactId>
+                <version>${aliyun-java-sdk-dm.version}</version>
+            </dependency>
+
+            <!--Mixmicro-Boot Logging-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-logging</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-logging</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--Mixmicro-Boot Logging Admin-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-logging-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-plugin-logging-admin-ui</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-boot-starter-logging-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-web</artifactId>
+                <version>${mixmicro.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-core</artifactId>
+                <version>${mixmicro.framework.version}</version>
+            </dependency>
+            <!-- Logging-->
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-logging-admin</artifactId>
+                <version>${mixmicro-logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-logging-admin-ui</artifactId>
+                <version>${mixmicro-logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-logging-client</artifactId>
+                <version>${mixmicro-logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.vopen.framework</groupId>
+                <artifactId>mixmicro-logging-spring-context</artifactId>
+                <version>${mixmicro-logging.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <!--plugin management-->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>${maven-plugin-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

@@ -1,0 +1,5 @@
+# 配置持久化框架自动化配置
+# 配置支持自动化分页插件
+# 配置动态查新重载结果插件
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  xyz.vopen.framework.mybatis.enhance.spring.boot.autoconfigure.MyBatisEnhanceAutoConfiguration

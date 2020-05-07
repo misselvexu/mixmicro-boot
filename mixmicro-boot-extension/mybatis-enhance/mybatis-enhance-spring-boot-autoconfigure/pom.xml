@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>xyz.vopen.framework</groupId>
+        <artifactId>mybatis-enhance</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>mybatis-enhance-spring-boot-autoconfigure</artifactId>
+    <description>MyBatis Enhance SpringBoot Starter AutoConfigure</description>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!--SpringBoot AutoConfigure Dependency-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <!-- @ConfigurationProperties annotation processing (metadata for IDEs) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--MyBatis-Enhance Core Dependency-->
+        <dependency>
+            <groupId>xyz.vopen.framework</groupId>
+            <artifactId>mybatis-enhance-core</artifactId>
+            <version>${mybatis.enhance.version}</version>
+        </dependency>
+
+        <!--Mybatis-Enhance Dsl Dependency-->
+        <dependency>
+            <groupId>xyz.vopen.framework</groupId>
+            <artifactId>mybatis-enhance-dsl</artifactId>
+            <version>${mybatis.enhance.dsl.version}</version>
+        </dependency>
+
+        <!--MyBatis-Pageable Dependency-->
+        <dependency>
+            <groupId>xyz.vopen.framework</groupId>
+            <artifactId>mybatis-pageable-spring-boot-starter</artifactId>
+            <version>${mybatis.pageable.version}</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>

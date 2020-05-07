@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>xyz.vopen.framework</groupId>
+        <artifactId>mixmicro-boot-parent</artifactId>
+        <version>${revision}</version>
+        <relativePath>../mixmicro-boot-parent</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>mixmicro-boot-starters</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+    </properties>
+
+    <modules>
+        <module>mixmicro-boot-starter</module>
+        <module>mixmicro-boot-starter-security-oauth-jwt</module>
+        <module>mixmicro-boot-starter-http-converter</module>
+        <module>mixmicro-boot-starter-swagger</module>
+        <module>mixmicro-boot-starter-alibaba-oss</module>
+        <module>mixmicro-boot-starter-alibaba-sms</module>
+        <module>mixmicro-boot-starter-quartz</module>
+        <module>mixmicro-boot-starter-datasource-switch</module>
+        <module>mixmicro-boot-starter-resource-load</module>
+        <module>mixmicro-boot-starter-message-push</module>
+        <module>mixmicro-boot-starter-mybatis-pageable</module>
+        <module>mixmicro-boot-starter-mybatis-enhance</module>
+        <module>mixmicro-boot-starter-rate-limiter</module>
+        <module>mixmicro-boot-starter-mail</module>
+        <module>mixmicro-boot-starter-logging</module>
+        <module>mixmicro-boot-starter-logging-admin</module>
+    </modules>
+
+</project>

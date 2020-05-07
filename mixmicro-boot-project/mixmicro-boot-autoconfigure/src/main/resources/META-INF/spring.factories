@@ -1,0 +1,22 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  xyz.vopen.framework.boot.autoconfigure.security.MixmicroBootWebSecurityMemoryAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.security.MixmicroBootWebSecurityJdbcAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.oauth.ApiBootResourceServerAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.oauth.MixmicroBootAuthorizationMemoryServerAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.oauth.MixmicroBootAuthorizationServerJdbcAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.oauth.MixmicroBootAuthorizationServerRedisAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.converter.HttpMessageConverterAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.oss.ApiBootOssAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.sms.ApiBootSmsAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.quartz.ApiBootQuartzAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.datasource.ApiBootDataSourceSwitchAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.resource.ApiBootResourceLoadAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.push.ApiBootMessagePushAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.pageable.ApiBootMybatisPageableAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.enhance.ApiBootMyBatisEnhanceAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.ratelimiter.ApiBootRateLimiterAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.mail.ApiBootMailAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.logging.ApiBootLoggingAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.logging.admin.ApiBootLoggingAdminAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.logging.admin.ApiBootLoggingAdminSecurityAutoConfiguration

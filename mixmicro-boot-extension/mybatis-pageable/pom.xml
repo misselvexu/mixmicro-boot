@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>xyz.vopen.framework</groupId>
+    <artifactId>mybatis-pageable</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0.RELEASE</version>
+    <modules>
+        <module>mybatis-pageable-core</module>
+        <module>mybatis-pageable-spring-boot-autoconfigure</module>
+        <module>mybatis-pageable-spring-boot-starter</module>
+    </modules>
+
+    <name>Mybatis Pageable Extension</name>
+
+    <properties>
+        <pageable.core.version>1.0.0.RELEASE</pageable.core.version>
+        <autoconfigure.version>1.0.0.RELEASE</autoconfigure.version>
+        <mybatis.version>3.4.4</mybatis.version>
+        <mybatis.starter.version>1.3.2</mybatis.starter.version>
+    </properties>
+
+    <description>
+        该项目用于mybatis框架的分页操作，提供全面的分页支持
+        目前支持数据：
+        DB2、
+        Derby、
+        DM、
+        H2、
+        HSQL、
+        InforMix、
+        Mariadb、
+        MySQL、
+        Oracle、
+        Postgres、
+        SqlLite、
+        SqlServer2000以上版本
+        等主流数据库
+    </description>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <developers>
+        <developer>
+            <name>Elve.Xu</name>
+            <email>iskp.me@gmail.com</email>
+            <organization>github</organization>
+            <organizationUrl>https://github.com/misselvexu</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/misselvexu/mixmicro-boot/mixmicro-boot-extension/mybatis-pageable</connection>
+        <developerConnection>scm:git:https://github.com/misselvexu/mixmicro-boot/mixmicro-boot-extension/mybatis-pageable</developerConnection>
+        <url>https://github.com/misselvexu/mixmicro-boot/mixmicro-boot-extension/mybatis-pageable</url>
+        <tag>1.0.0.RELEASE</tag>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    <build>
+        <plugins>
+            <!-- Source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+
+        <!-- Github Maven Center Repository -->
+        <profile>
+            <id>github</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <!-- Gpg Signature -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- HGJ Nexus Repository -->
+        <profile>
+            <id>hgj</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>nexus.releases</id>
+                    <url>http://nexus.hgj.net/repository/releases/</url>
+                    <uniqueVersion>false</uniqueVersion>
+                </repository>
+                <snapshotRepository>
+                    <id>nexus.snapshots</id>
+                    <url>http://nexus.hgj.net/repository/snapshots/</url>
+                    <uniqueVersion>false</uniqueVersion>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+</project>
