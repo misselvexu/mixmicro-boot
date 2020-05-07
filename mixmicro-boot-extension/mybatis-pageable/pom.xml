@@ -21,7 +21,7 @@
         <module>mybatis-pageable-spring-boot-starter</module>
     </modules>
 
-    <name>Mybatis Pageable Extension</name>
+    <name>Mixmicro+ Boot :: Mybatis Pageable Extension</name>
 
     <properties>
         <pageable.core.version>1.0.0.RELEASE</pageable.core.version>

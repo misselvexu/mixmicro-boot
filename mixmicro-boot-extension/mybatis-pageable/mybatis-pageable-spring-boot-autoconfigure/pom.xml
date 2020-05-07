@@ -12,6 +12,8 @@
 
     <artifactId>mybatis-pageable-spring-boot-autoconfigure</artifactId>
 
+    <name>Mixmicro+ Boot :: Mybatis Pageable Extension AutoConfigure</name>
+
     <dependencies>
         <!--SpringBoot AutoConfigure Dependency-->
         <dependency>

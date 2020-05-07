@@ -12,6 +12,8 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mixmicro-boot-common</artifactId>
 
+    <name>Mixmicro+ Boot :: Common</name>
+
     <properties>
         <main.basedir>${basedir}/../..</main.basedir>
     </properties>

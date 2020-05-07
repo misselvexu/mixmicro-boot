@@ -10,6 +10,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mixmicro-boot-starters</artifactId>
+
+    <name>Mixmicro+ Boot :: Spring Boot Starters</name>
+
     <packaging>pom</packaging>
 
     <properties>

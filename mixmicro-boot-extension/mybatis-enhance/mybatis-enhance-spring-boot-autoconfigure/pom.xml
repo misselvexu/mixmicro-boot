@@ -10,6 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mybatis-enhance-spring-boot-autoconfigure</artifactId>
+    <name>Mixmicro+ Boot :: Mybatis Enhance AutoConfigure</name>
     <description>MyBatis Enhance SpringBoot Starter AutoConfigure</description>
     <packaging>jar</packaging>
 

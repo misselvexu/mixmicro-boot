@@ -14,6 +14,8 @@
     <description>
         Mixmicro-Boot Message Push Plugins.
     </description>
+    <name>Mixmicro+ Boot :: Integration Plugin :: Message Push</name>
+
     <artifactId>mixmicro-boot-plugin-message-push</artifactId>
     <dependencies>
         <!--Mixmicro-Boot Plugin-->

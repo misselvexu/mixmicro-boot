@@ -28,10 +28,10 @@
     <properties>
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>
-    <description>
-        ApiBoot提供快速集成发送邮件服务
-    </description>
     <artifactId>mixmicro-boot-starter-mail</artifactId>
+
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: E-Mail</name>
+
     <dependencies>
         <!--Mixmicro Boot Starter-->
         <dependency>

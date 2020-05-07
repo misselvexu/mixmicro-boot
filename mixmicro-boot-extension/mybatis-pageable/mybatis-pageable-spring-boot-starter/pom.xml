@@ -15,6 +15,8 @@
 
     <description>Mybatis Pageable Spring Boot Starter</description>
 
+    <name>Mixmicro+ Boot :: Mybatis Pageable Extension Spring Boot Starter</name>
+
     <dependencies>
         <!--mybatis-pageable autoconfigure-->
         <dependency>

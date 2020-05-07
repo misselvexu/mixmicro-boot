@@ -15,6 +15,9 @@
     <description>
         Mixmicro-Boot Resource Load
     </description>
+
+    <name>Mixmicro+ Boot :: Integration Plugin :: Resource Load</name>
+
     <dependencies>
         <!--Mixmicro-Boot Plugin-->
         <dependency>

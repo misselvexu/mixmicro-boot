@@ -13,4 +13,6 @@
     <artifactId>mixmicro-boot-core</artifactId>
     <packaging>pom</packaging>
 
+    <name>Mixmicro+ Boot Core(s)</name>
+
 </project>

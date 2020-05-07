@@ -29,6 +29,8 @@
     </properties>
     <artifactId>mixmicro-boot-starter-logging-admin</artifactId>
 
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Logging Admin</name>
+
     <dependencies>
         <!--Mixmicro Boot Starter-->
         <dependency>

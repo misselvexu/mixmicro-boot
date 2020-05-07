@@ -10,6 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>mixmicro-boot-starter-alibaba-oss</artifactId>
+
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Aliabab OSS</name>
+
     <properties>
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>

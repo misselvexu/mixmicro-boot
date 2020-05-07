@@ -10,14 +10,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mixmicro-boot-extension</artifactId>
+    <artifactId>mixmicro-boot-sample</artifactId>
     <packaging>pom</packaging>
 
-    <name>Mixmicro+ Boot Extension(s)</name>
+    <name>Mixmicro+ Boot Samples </name>
 
     <modules>
-        <module>mybatis-enhance</module>
-        <module>mybatis-pageable</module>
+
     </modules>
 
 </project>

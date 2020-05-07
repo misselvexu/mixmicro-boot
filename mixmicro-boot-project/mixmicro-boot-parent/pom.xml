@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <artifactId>mixmicro-boot-parent</artifactId>
 
+    <name>Mixmicro+ Boot :: Parent</name>
+
     <description>
         Mixmicro Boot Starter / Plugin Parent
     </description>

@@ -28,6 +28,8 @@
 
     <artifactId>mixmicro-boot-starter-message-push</artifactId>
 
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Message Push</name>
+
     <dependencies>
         <!--Mixmicro Boot Starter-->
         <dependency>

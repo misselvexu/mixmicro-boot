@@ -14,6 +14,8 @@
     </properties>
     <artifactId>mixmicro-boot-plugin-security</artifactId>
 
+    <name>Mixmicro+ Boot :: Integration Plugin :: Security</name>
+
     <dependencies>
         <!--Mixmicro-Boot Plugin-->
         <dependency>

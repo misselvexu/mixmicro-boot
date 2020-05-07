@@ -10,6 +10,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mybatis-enhance-core</artifactId>
+
+    <name>Mixmicro+ Boot :: Mybatis Enhance Core</name>
+
     <description>
         The dependency is completely replaced by spring-mybatis,
         Provide some single table Mapper mapping and SQLSource's reinitialization in the MappedStatement of method

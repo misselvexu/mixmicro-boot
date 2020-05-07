@@ -13,6 +13,8 @@
     <artifactId>mixmicro-boot-project</artifactId>
     <packaging>pom</packaging>
 
+    <name>Mixmicro+ Boot Project(s)</name>
+
     <modules>
         <module>mixmicro-boot-dependencies</module>
         <module>mixmicro-boot-parent</module>
@@ -20,7 +22,6 @@
         <module>mixmicro-boot-starters</module>
         <module>mixmicro-boot-common</module>
         <module>mixmicro-boot-plugins</module>
-        <!--        <module>mixmicro-boot-maven-plugins</module>-->
     </modules>
 
 </project>

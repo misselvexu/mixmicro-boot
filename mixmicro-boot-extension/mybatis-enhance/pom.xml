@@ -21,7 +21,7 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>Mybatis Enhance Extension</name>
+    <name>Mixmicro+ Boot :: Mybatis Enhance Extension</name>
 
     <developers>
         <developer>

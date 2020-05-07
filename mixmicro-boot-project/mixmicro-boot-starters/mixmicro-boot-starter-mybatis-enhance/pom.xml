@@ -30,6 +30,8 @@
     </properties>
     <artifactId>mixmicro-boot-starter-mybatis-enhance</artifactId>
 
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Mybatis Enhance</name>
+
     <dependencies>
         <!--Mixmicro Boot Starter-->
         <dependency>

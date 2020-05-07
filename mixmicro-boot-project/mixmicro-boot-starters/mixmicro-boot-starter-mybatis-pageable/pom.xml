@@ -29,6 +29,9 @@
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>
     <artifactId>mixmicro-boot-starter-mybatis-pageable</artifactId>
+
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Mybatis Pageable</name>
+
     <dependencies>
         <!--Mixmicro Boot Starter-->
         <dependency>

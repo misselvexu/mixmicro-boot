@@ -32,6 +32,9 @@
     <description>
         Mixmicro-Boot Http Converter Plugin
     </description>
+
+    <name>Mixmicro+ Boot :: Integration Plugin :: Http Message Converter</name>
+
     <dependencies>
         <!--Mixmicro-Boot Plugin-->
         <dependency>

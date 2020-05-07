@@ -10,6 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>mixmicro-boot-starter</artifactId>
+
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Core</name>
+
     <properties>
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>

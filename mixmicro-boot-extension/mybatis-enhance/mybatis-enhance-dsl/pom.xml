@@ -11,6 +11,9 @@
     <modelVersion>4.0.0</modelVersion>
     <version>1.0.0.RELEASE</version>
     <artifactId>mybatis-enhance-dsl</artifactId>
+
+    <name>Mixmicro+ Boot :: Mybatis Enhance DSL</name>
+
     <dependencies>
         <!--添加mybatis-enhance依赖-->
         <dependency>

@@ -32,6 +32,9 @@
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>
     <artifactId>mixmicro-boot-starter-logging</artifactId>
+
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Logging</name>
+
     <dependencies>
         <!--Mixmicro Boot Starter-->
         <dependency>

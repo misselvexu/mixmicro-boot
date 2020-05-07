@@ -14,14 +14,14 @@
     <packaging>pom</packaging>
     <version>${revision}</version>
 
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Logging Parent</name>
+
     <modules>
         <module>mixmicro-logging-client</module>
         <module>mixmicro-logging-admin</module>
         <module>mixmicro-logging-admin-ui</module>
         <module>mixmicro-logging-core</module>
         <module>mixmicro-logging-spring-context</module>
-
-        <!--        <module>mixmicro-logging-samples</module>-->
     </modules>
 
     <properties>

@@ -12,6 +12,9 @@
     <description>
         Mixmicro-Boot Plugin Base Dependency
     </description>
+
+    <name>Mixmicro+ Boot :: Integration Plugin :: Base</name>
+
     <properties>
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>

@@ -12,6 +12,8 @@
 
     <artifactId>mybatis-enhance-spring-boot-starter</artifactId>
 
+    <name>Mixmicro+ Boot :: Mybatis Enhance Spring Boot Starter</name>
+
     <description>MyBatis Enhance SpringBoot Starter</description>
 
     <dependencies>

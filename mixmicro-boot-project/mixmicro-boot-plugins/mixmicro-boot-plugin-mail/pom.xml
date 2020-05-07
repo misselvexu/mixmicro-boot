@@ -30,6 +30,9 @@
         Mixmicro Boot Mail .
     </description>
     <artifactId>mixmicro-boot-plugin-mail</artifactId>
+
+    <name>Mixmicro+ Boot :: Integration Plugin :: E-Mail</name>
+
     <dependencies>
         <!--Mixmicro-Boot Plugin-->
         <dependency>

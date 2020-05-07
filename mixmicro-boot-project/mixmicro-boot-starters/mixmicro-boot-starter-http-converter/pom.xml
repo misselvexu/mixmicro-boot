@@ -13,6 +13,9 @@
     <properties>
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>
+
+    <name>Mixmicro+ Boot :: Spring Boot Starters :: Http Message Converter</name>
+
     <dependencies>
         <dependency>
             <groupId>xyz.vopen.framework</groupId>

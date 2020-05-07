@@ -10,6 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
     <description>Mixmicro-Boot Quartz</description>
     <artifactId>mixmicro-boot-plugin-quartz</artifactId>
+
+    <name>Mixmicro+ Boot :: Integration Plugin :: Quartz</name>
+
     <properties>
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>
