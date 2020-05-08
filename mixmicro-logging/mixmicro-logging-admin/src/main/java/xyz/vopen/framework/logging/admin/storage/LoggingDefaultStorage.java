@@ -1,6 +1,6 @@
 package xyz.vopen.framework.logging.admin.storage;
 
-import xyz.vopen.framework.logging.core.GlobalLog;
+import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
 import xyz.vopen.framework.logging.core.MixmicroLog;
 import xyz.vopen.framework.logging.core.response.LoggingResponse;
 import xyz.vopen.framework.logging.core.response.ServiceResponse;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class LoggingDefaultStorage implements LoggingStorage {
   @Override
-  public String insertGlobalLog(String requestLogId, GlobalLog log) throws SQLException {
+  public String insertGlobalLog(String requestLogId, MixmicroGlobalLog log) throws SQLException {
     return null;
   }
 

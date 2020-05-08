@@ -21,7 +21,7 @@ import com.alibaba.fastjson.JSON;
 import xyz.vopen.framework.logging.client.LogThreadLocal;
 import xyz.vopen.framework.logging.client.LoggingConstant;
 import xyz.vopen.framework.logging.client.LoggingFactoryBean;
-import xyz.vopen.framework.logging.client.global.GlobalLoggingThreadLocal;
+import xyz.vopen.framework.logging.client.global.MixmicroLoggingThreadLocal;
 import xyz.vopen.framework.logging.client.interceptor.LoggingAbstractInterceptor;
 import xyz.vopen.framework.logging.client.notice.LoggingNoticeEvent;
 import xyz.vopen.framework.logging.core.MixmicroLog;
@@ -135,7 +135,7 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
         log.setResponseHeaders(HttpRequestUtil.getResponseHeaders(response));
         log.setResponseBody(HttpRequestUtil.getResponseBody(response));
         // set global logs
-        log.setGlobalLogs(GlobalLoggingThreadLocal.getGlobalLogs());
+        log.setMixmicroGlobalLogs(MixmicroLoggingThreadLocal.getGlobalLogs());
         // publish logging event
         factoryBean.getApplicationContext().publishEvent(new LoggingNoticeEvent(this, log));
       }
@@ -145,7 +145,7 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
       // Remove Mixmicro Boot Log
       LogThreadLocal.remove();
       // Remove this request global logs
-      GlobalLoggingThreadLocal.remove();
+      MixmicroLoggingThreadLocal.remove();
     }
   }
 
@@ -176,8 +176,7 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
    */
   private String extractTraceId(HttpServletRequest request) {
     // get traceId from request header
-    String traceId = HttpRequestUtil.getHeader(request, LoggingConstant.HEADER_NAME_TRACE_ID);
-    return traceId;
+    return HttpRequestUtil.getHeader(request, LoggingConstant.HEADER_NAME_TRACE_ID);
   }
 
   /**

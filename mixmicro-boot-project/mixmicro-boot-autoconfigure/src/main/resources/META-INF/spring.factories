@@ -10,7 +10,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   xyz.vopen.framework.boot.autoconfigure.oss.MixmicroBootOssAutoConfiguration,\
   xyz.vopen.framework.boot.autoconfigure.sms.MixmicroBootSmsAutoConfiguration,\
   xyz.vopen.framework.boot.autoconfigure.quartz.MixmicroBootQuartzAutoConfiguration,\
-  xyz.vopen.framework.boot.autoconfigure.datasource.MixmicroBootDataSourceSwitchAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.datasource.MixmicroBootDynamicDataSourceAutoConfiguration,\
   xyz.vopen.framework.boot.autoconfigure.resource.MixmicroBootResourceLoadAutoConfiguration,\
   xyz.vopen.framework.boot.autoconfigure.push.MixmicroBootMessagePushAutoConfiguration,\
   xyz.vopen.framework.boot.autoconfigure.pageable.MixmicroBootMybatisPageableAutoConfiguration,\

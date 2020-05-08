@@ -24,7 +24,7 @@ package xyz.vopen.framework.logging.client;
  */
 public interface LoggingConstant {
   /** TraceId Header Name */
-  String HEADER_NAME_TRACE_ID = "MINBOX-LOGGING-X-TRACE-ID";
+  String HEADER_NAME_TRACE_ID = "MIXMICRO-LOGGING-X-TRACE-ID";
   /** Parent SpanId Header Name */
-  String HEADER_NAME_PARENT_SPAN_ID = "MINBOX-LOGGING-X-PARENT-SPAN-ID";
+  String HEADER_NAME_PARENT_SPAN_ID = "MIXMICRO-LOGGING-X-PARENT-SPAN-ID";
 }

@@ -31,15 +31,15 @@ import java.util.Map;
  */
 @Configuration
 @ConditionalOnClass(MixmicroBootDataSource.class)
-@EnableConfigurationProperties(MixmicroBootDataSourceSwitchProperties.class)
+@EnableConfigurationProperties(MixmicroBootDynamicDataSourceProperties.class)
 @AutoConfigureBefore(DataSourceAutoConfiguration.class)
-public class MixmicroBootDataSourceSwitchAutoConfiguration {
+public class MixmicroBootDynamicDataSourceAutoConfiguration {
   /** Mixmicro Boot DataSource Switch Properties */
-  private MixmicroBootDataSourceSwitchProperties mixmicroBootDataSourceSwitchProperties;
+  private MixmicroBootDynamicDataSourceProperties mixmicroBootDynamicDataSourceProperties;
 
-  public MixmicroBootDataSourceSwitchAutoConfiguration(
-      MixmicroBootDataSourceSwitchProperties mixmicroBootDataSourceSwitchProperties) {
-    this.mixmicroBootDataSourceSwitchProperties = mixmicroBootDataSourceSwitchProperties;
+  public MixmicroBootDynamicDataSourceAutoConfiguration(
+      MixmicroBootDynamicDataSourceProperties mixmicroBootDynamicDataSourceProperties) {
+    this.mixmicroBootDynamicDataSourceProperties = mixmicroBootDynamicDataSourceProperties;
   }
 
   /**
@@ -66,9 +66,9 @@ public class MixmicroBootDataSourceSwitchAutoConfiguration {
     Map<String, DataSourceConfig> dataSourceConfigMap = new HashMap(1);
 
     // put druid datasource config to map
-    dataSourceConfigMap.putAll(mixmicroBootDataSourceSwitchProperties.getDruid());
+    dataSourceConfigMap.putAll(mixmicroBootDynamicDataSourceProperties.getDruid());
     // put hikari datasource config to map
-    dataSourceConfigMap.putAll(mixmicroBootDataSourceSwitchProperties.getHikari());
+    dataSourceConfigMap.putAll(mixmicroBootDynamicDataSourceProperties.getHikari());
 
     // convert all datasource config
     dataSourceConfigMap.keySet().stream()
@@ -89,7 +89,7 @@ public class MixmicroBootDataSourceSwitchAutoConfiguration {
 
     return new MixmicroBootRoutingDataSource(
         mixmicroBootDataSourceFactoryBean,
-        mixmicroBootDataSourceSwitchProperties.getPrimary(),
+        mixmicroBootDynamicDataSourceProperties.getPrimary(),
         dataSourceConfigList);
   }
 

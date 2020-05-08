@@ -28,7 +28,7 @@
         <module>mixmicro-boot-plugin-security</module>
         <module>mixmicro-boot-plugin-oauth</module>
         <module>mixmicro-boot-plugin-quartz</module>
-        <module>mixmicro-boot-plugin-datasource-switch</module>
+        <module>mixmicro-boot-plugin-dynamic-datasource</module>
         <module>mixmicro-boot-plugin-resource-load</module>
         <module>mixmicro-boot-plugin-http-converter</module>
         <module>mixmicro-boot-plugin-message-push</module>

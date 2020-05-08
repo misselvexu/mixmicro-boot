@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import xyz.vopen.framework.logging.client.global.GlobalLogging;
+import xyz.vopen.framework.logging.client.global.MixmicroLogging;
 
 @RestController
 public class IndexController {
 
   @Autowired private RestTemplate restTemplate;
 
-  @Autowired private GlobalLogging logging;
+  @Autowired private MixmicroLogging logging;
 
   @GetMapping(value = "/index")
   public String user() {
@@ -26,7 +26,7 @@ public class IndexController {
       logging.error("执行遇到异常.", e);
     }
     logging.debug("执行完成了吧？");
-    return "xxx";
+    return "测试接口";
   }
 
   @PostMapping(value = "/index")

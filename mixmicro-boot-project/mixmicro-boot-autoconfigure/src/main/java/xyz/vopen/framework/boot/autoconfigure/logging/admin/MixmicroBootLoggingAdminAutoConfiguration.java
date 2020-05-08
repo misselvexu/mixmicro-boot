@@ -72,8 +72,7 @@ public class MixmicroBootLoggingAdminAutoConfiguration {
   @Bean
   @ConditionalOnMissingBean
   public LoggingDataSourceStorage loggingDataSourceStorage(DataSource dataSource) {
-    LoggingDataSourceStorage storage = new LoggingDataSourceStorage(dataSource);
-    return storage;
+    return new LoggingDataSourceStorage(dataSource);
   }
 
   /**

@@ -69,5 +69,5 @@ public class MixmicroLog implements Serializable {
   /** exception stack */
   private String exceptionStack;
   /** Global method log list */
-  private List<GlobalLog> globalLogs;
+  private List<MixmicroGlobalLog> mixmicroGlobalLogs;
 }

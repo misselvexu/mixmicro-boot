@@ -8,7 +8,7 @@ import lombok.Getter;
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
 @Getter
-public enum GlobalLogLevel {
+public enum MixmicroLogLevel {
   debug,
   info,
   error

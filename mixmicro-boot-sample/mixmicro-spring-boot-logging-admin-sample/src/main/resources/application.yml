@@ -14,7 +14,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     username: root
     password: root
-    url: jdbc:mysql://127.0.0.1:3306/mixmicro-logging
+    url: jdbc:mysql://127.0.0.1:3306/mixmicro-logging?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useAffectedRows=true&useSSL=false
 
 server:
   port: 9090

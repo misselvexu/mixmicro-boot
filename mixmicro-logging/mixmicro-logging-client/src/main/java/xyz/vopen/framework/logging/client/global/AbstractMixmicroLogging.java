@@ -1,7 +1,7 @@
 package xyz.vopen.framework.logging.client.global;
 
-import xyz.vopen.framework.logging.core.GlobalLog;
-import xyz.vopen.framework.logging.core.GlobalLogLevel;
+import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
+import xyz.vopen.framework.logging.core.MixmicroLogLevel;
 import org.springframework.util.ObjectUtils;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.util.ObjectUtils;
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
-public abstract class AbstractGlobalLogging implements GlobalLogging {
+public abstract class AbstractMixmicroLogging implements MixmicroLogging {
   /**
    * Get the StackTrace of the initial calling method caller class name {@link
    * StackTraceElement#getClassName()} caller method name {@link StackTraceElement#getMethodName()}
@@ -18,8 +18,8 @@ public abstract class AbstractGlobalLogging implements GlobalLogging {
    * <p>Why is the index of the Get StackTraceElement 5? info、debug、error level log method
    * invocation process： 0. {@link #getCallMethodStackTrace()} 1. {@link #getCallerClassName()} or
    * {@link #getCallerMethodName()} or {@link #getCallerCodeLineNumber()} 2. {@link
-   * #instanceGlobalLog()} 3. {@link #buildGlobalLog(GlobalLogLevel, String)} 4. {@link
-   * GlobalLogging#info(String)} 5. Real business call method
+   * #instanceGlobalLog()} 3. {@link #buildGlobalLog(MixmicroLogLevel, String)} 4. {@link
+   * MixmicroLogging#info(String)} 5. Real business call method
    *
    * @return {@link StackTraceElement}
    */
@@ -56,30 +56,30 @@ public abstract class AbstractGlobalLogging implements GlobalLogging {
   }
 
   /**
-   * create the {@link GlobalLog} object instance initialization set call information
+   * create the {@link MixmicroGlobalLog} object instance initialization set call information
    *
-   * @return {@link GlobalLog}
+   * @return {@link MixmicroGlobalLog}
    */
-  protected GlobalLog instanceGlobalLog() {
-    GlobalLog globalLog = new GlobalLog();
-    globalLog.setCallerClass(getCallerClassName());
-    globalLog.setCallerMethod(getCallerMethodName());
-    globalLog.setCallerCodeLineNumber(getCallerCodeLineNumber());
-    return globalLog;
+  protected MixmicroGlobalLog instanceGlobalLog() {
+    MixmicroGlobalLog mixmicroGlobalLog = new MixmicroGlobalLog();
+    mixmicroGlobalLog.setCallerClass(getCallerClassName());
+    mixmicroGlobalLog.setCallerMethod(getCallerMethodName());
+    mixmicroGlobalLog.setCallerCodeLineNumber(getCallerCodeLineNumber());
+    return mixmicroGlobalLog;
   }
 
   /**
    * Build Global Log Instance
    *
-   * @param level {@link GlobalLogLevel}
-   * @param content {@link GlobalLog#getContent()}
-   * @return {@link GlobalLog}
+   * @param level {@link MixmicroLogLevel}
+   * @param content {@link MixmicroGlobalLog#getContent()}
+   * @return {@link MixmicroGlobalLog}
    */
-  protected GlobalLog buildGlobalLog(GlobalLogLevel level, String content) {
-    GlobalLog globalLog = instanceGlobalLog();
-    globalLog.setLevel(level);
-    globalLog.setContent(content);
-    return globalLog;
+  protected MixmicroGlobalLog buildGlobalLog(MixmicroLogLevel level, String content) {
+    MixmicroGlobalLog mixmicroGlobalLog = instanceGlobalLog();
+    mixmicroGlobalLog.setLevel(level);
+    mixmicroGlobalLog.setContent(content);
+    return mixmicroGlobalLog;
   }
 
   /**

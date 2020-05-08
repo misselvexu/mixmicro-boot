@@ -10,9 +10,9 @@ import java.io.Serializable;
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
 @Data
-public class GlobalLog implements Serializable {
-  /** Global log level {@link GlobalLogLevel} */
-  private GlobalLogLevel level;
+public class MixmicroGlobalLog implements Serializable {
+  /** Global log level {@link MixmicroLogLevel} */
+  private MixmicroLogLevel level;
   /** all level's log content */
   private String content;
   /** Error stack information collected in error level logs */

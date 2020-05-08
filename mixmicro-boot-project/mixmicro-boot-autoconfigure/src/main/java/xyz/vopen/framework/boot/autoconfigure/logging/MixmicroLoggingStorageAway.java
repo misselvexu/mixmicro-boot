@@ -18,21 +18,21 @@
 package xyz.vopen.framework.boot.autoconfigure.logging;
 
 import lombok.Getter;
-import xyz.vopen.framework.logging.client.global.GlobalLogging;
-import xyz.vopen.framework.logging.client.global.support.GlobalLoggingMemoryStorage;
+import xyz.vopen.framework.logging.client.global.MixmicroLogging;
+import xyz.vopen.framework.logging.client.global.support.MixmicroLoggingMemoryStorage;
 
 /**
  * The global logging storage away
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
- * @see GlobalLogging
+ * @see MixmicroLogging
  */
 @Getter
-public enum GlobalLoggingStorageAway {
+public enum MixmicroLoggingStorageAway {
   /**
    * memory away
    *
-   * @see GlobalLoggingMemoryStorage
+   * @see MixmicroLoggingMemoryStorage
    */
   memory
 }

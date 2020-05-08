@@ -17,8 +17,8 @@
 
 package xyz.vopen.framework.boot.autoconfigure.logging;
 
-import xyz.vopen.framework.logging.client.global.GlobalLogging;
-import xyz.vopen.framework.logging.client.global.support.GlobalLoggingMemoryStorage;
+import xyz.vopen.framework.logging.client.global.MixmicroLogging;
+import xyz.vopen.framework.logging.client.global.support.MixmicroLoggingMemoryStorage;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -30,12 +30,12 @@ import org.springframework.context.annotation.Configuration;
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
 @Configuration
-@ConditionalOnClass(GlobalLogging.class)
+@ConditionalOnClass(MixmicroLogging.class)
 public class MixmicroBootLoggingGlobalLogStorageAutoConfiguration {
   /**
    * Instance global log memory mode storage
    *
-   * @return {@link GlobalLoggingMemoryStorage}
+   * @return {@link MixmicroLoggingMemoryStorage}
    */
   @Bean
   @ConditionalOnProperty(
@@ -43,7 +43,7 @@ public class MixmicroBootLoggingGlobalLogStorageAutoConfiguration {
       name = "global-logging-storage-away",
       havingValue = "memory",
       matchIfMissing = true)
-  public GlobalLogging globalLogging() {
-    return new GlobalLoggingMemoryStorage();
+  public MixmicroLogging globalLogging() {
+    return new MixmicroLoggingMemoryStorage();
   }
 }

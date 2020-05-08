@@ -21,7 +21,7 @@ import xyz.vopen.framework.logging.admin.LoggingAdminFactoryBean;
 import xyz.vopen.framework.logging.admin.endpoint.LoggingEndpoint;
 import xyz.vopen.framework.logging.admin.event.ReportLogEvent;
 import xyz.vopen.framework.logging.admin.storage.LoggingStorage;
-import xyz.vopen.framework.logging.core.GlobalLog;
+import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
 import xyz.vopen.framework.logging.core.LoggingClientNotice;
 import xyz.vopen.framework.logging.core.MixmicroLog;
 import org.slf4j.Logger;
@@ -103,7 +103,7 @@ public class ReportLogStorageListener implements SmartApplicationListener {
         for (MixmicroLog log : notice.getLoggers()) {
           String requestLogId = loggingStorage.insertLog(serviceDetailId, log);
           // save global logs
-          saveGlobalLogs(requestLogId, log.getGlobalLogs());
+          saveGlobalLogs(requestLogId, log.getMixmicroGlobalLogs());
         }
       }
 
@@ -121,11 +121,11 @@ public class ReportLogStorageListener implements SmartApplicationListener {
    * Save the global log contained in each request log
    *
    * @param requestLogId request log id
-   * @param globalLogs {@link GlobalLog}
+   * @param mixmicroGlobalLogs {@link MixmicroGlobalLog}
    */
-  private void saveGlobalLogs(String requestLogId, List<GlobalLog> globalLogs) {
-    if (!ObjectUtils.isEmpty(globalLogs) && !ObjectUtils.isEmpty(requestLogId)) {
-      globalLogs.forEach(
+  private void saveGlobalLogs(String requestLogId, List<MixmicroGlobalLog> mixmicroGlobalLogs) {
+    if (!ObjectUtils.isEmpty(mixmicroGlobalLogs) && !ObjectUtils.isEmpty(requestLogId)) {
+      mixmicroGlobalLogs.forEach(
           globalLog -> {
             try {
               loggingStorage.insertGlobalLog(requestLogId, globalLog);

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.HashMap;
 import java.util.Map;
 
-import static xyz.vopen.framework.boot.autoconfigure.datasource.MixmicroBootDataSourceSwitchProperties.MIXMICRO_BOOT_DATASOURCE_SWITCH_PREFIX;
+import static xyz.vopen.framework.boot.autoconfigure.datasource.MixmicroBootDynamicDataSourceProperties.MIXMICRO_BOOT_DYNAMIC_DATASOURCE_PREFIX;
 
 /**
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
@@ -17,10 +17,10 @@ import static xyz.vopen.framework.boot.autoconfigure.datasource.MixmicroBootData
  */
 @Data
 @Configuration
-@ConfigurationProperties(prefix = MIXMICRO_BOOT_DATASOURCE_SWITCH_PREFIX)
-public class MixmicroBootDataSourceSwitchProperties {
+@ConfigurationProperties(prefix = MIXMICRO_BOOT_DYNAMIC_DATASOURCE_PREFIX)
+public class MixmicroBootDynamicDataSourceProperties {
   /** Mixmicro Boot DataSource Switch Config Prefix */
-  public static final String MIXMICRO_BOOT_DATASOURCE_SWITCH_PREFIX = "mixmicro.boot.datasource";
+  public static final String MIXMICRO_BOOT_DYNAMIC_DATASOURCE_PREFIX = "mixmicro.boot.dynamic.datasource";
   /** primary datasource pool name default is master */
   private String primary = "master";
   /** config druid type datasource list */

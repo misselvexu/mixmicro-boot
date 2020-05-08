@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mixmicro-boot-plugin-datasource-switch</artifactId>
+    <artifactId>mixmicro-boot-plugin-dynamic-datasource</artifactId>
 
     <name>Mixmicro+ Boot :: Integration Plugin :: Dynamic DataSource</name>
 
     <description>
-        Mixmicro-Boot DataSource Switch
+        Mixmicro-Boot Dynamic DataSource
         数据源切换：
         1. 多数据源配置
         2. 数据源路由器实现

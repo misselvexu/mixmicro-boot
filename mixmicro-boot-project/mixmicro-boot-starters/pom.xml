@@ -27,7 +27,7 @@
         <module>mixmicro-boot-starter-alibaba-oss</module>
         <module>mixmicro-boot-starter-alibaba-sms</module>
         <module>mixmicro-boot-starter-quartz</module>
-        <module>mixmicro-boot-starter-datasource-switch</module>
+        <module>mixmicro-boot-starter-dynamic-datasource</module>
         <module>mixmicro-boot-starter-resource-load</module>
         <module>mixmicro-boot-starter-message-push</module>
         <module>mixmicro-boot-starter-mybatis-pageable</module>

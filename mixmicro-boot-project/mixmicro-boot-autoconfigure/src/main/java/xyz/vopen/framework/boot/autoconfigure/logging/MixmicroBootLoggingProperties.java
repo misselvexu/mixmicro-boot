@@ -59,7 +59,7 @@ public class MixmicroBootLoggingProperties {
   /** logging cache away */
   private LoggingCacheAway loggingCacheAway = LoggingCacheAway.memory;
   /** global logging storage away */
-  private GlobalLoggingStorageAway globalLoggingStorageAway = GlobalLoggingStorageAway.memory;
+  private MixmicroLoggingStorageAway mixmicroLoggingStorageAway = MixmicroLoggingStorageAway.memory;
   /** Mixmicro Boot Logging Admin Instance */
   private AdminInstance admin = new AdminInstance();
   /** Mixmicro Boot Logging Discovery Instance support eureka */

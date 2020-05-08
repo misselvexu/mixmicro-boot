@@ -17,7 +17,7 @@
 
 package xyz.vopen.framework.logging.admin.storage;
 
-import xyz.vopen.framework.logging.core.GlobalLog;
+import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
 import xyz.vopen.framework.logging.core.MixmicroLog;
 import xyz.vopen.framework.logging.core.response.LoggingResponse;
 import xyz.vopen.framework.logging.core.response.ServiceResponse;
@@ -35,11 +35,11 @@ public interface LoggingStorage {
    * Insert Global Log
    *
    * @param requestLogId request log id
-   * @param log {@link GlobalLog}
+   * @param log {@link MixmicroGlobalLog}
    * @return the global log id
    * @throws SQLException Sql Exception
    */
-  String insertGlobalLog(String requestLogId, GlobalLog log) throws SQLException;
+  String insertGlobalLog(String requestLogId, MixmicroGlobalLog log) throws SQLException;
 
   /**
    * Insert ApiBootLogs To DataBase

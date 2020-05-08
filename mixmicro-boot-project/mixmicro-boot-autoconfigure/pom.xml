@@ -141,7 +141,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>mixmicro-boot-plugin-datasource-switch</artifactId>
+            <artifactId>mixmicro-boot-plugin-dynamic-datasource</artifactId>
             <optional>true</optional>
         </dependency>
 

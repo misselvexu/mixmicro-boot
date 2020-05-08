@@ -7,8 +7,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import xyz.vopen.framework.logging.client.LoggingFactoryBean;
 import xyz.vopen.framework.logging.client.admin.discovery.support.LoggingAppointAdminDiscovery;
-import xyz.vopen.framework.logging.client.global.GlobalLogging;
-import xyz.vopen.framework.logging.client.global.support.GlobalLoggingMemoryStorage;
+import xyz.vopen.framework.logging.client.global.MixmicroLogging;
+import xyz.vopen.framework.logging.client.global.support.MixmicroLoggingMemoryStorage;
 import xyz.vopen.framework.logging.client.interceptor.web.LoggingWebInterceptor;
 import xyz.vopen.framework.logging.client.span.LoggingSpanGenerator;
 import xyz.vopen.framework.logging.client.tracer.LoggingTraceGenerator;
@@ -71,7 +71,7 @@ public class LoggingClientConfiguration implements WebMvcConfigurer {
   }
 
   @Bean
-  public GlobalLogging globalLogging() {
-    return new GlobalLoggingMemoryStorage();
+  public MixmicroLogging globalLogging() {
+    return new MixmicroLoggingMemoryStorage();
   }
 }

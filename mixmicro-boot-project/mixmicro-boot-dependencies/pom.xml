@@ -283,12 +283,12 @@
             <!--Mixmicro-Boot DataSource Switch-->
             <dependency>
                 <groupId>xyz.vopen.framework</groupId>
-                <artifactId>mixmicro-boot-plugin-datasource-switch</artifactId>
+                <artifactId>mixmicro-boot-plugin-dynamic-datasource</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.vopen.framework</groupId>
-                <artifactId>mixmicro-boot-starter-datasource-switch</artifactId>
+                <artifactId>mixmicro-boot-starter-dynamic-datasource</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

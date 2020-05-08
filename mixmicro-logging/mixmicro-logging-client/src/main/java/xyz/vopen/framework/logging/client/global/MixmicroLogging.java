@@ -5,7 +5,7 @@ package xyz.vopen.framework.logging.client.global;
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
-public interface GlobalLogging {
+public interface MixmicroLogging {
   /**
    * Collect Debug Level Logs
    *
