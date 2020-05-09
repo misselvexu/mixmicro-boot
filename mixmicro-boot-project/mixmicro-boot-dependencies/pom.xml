@@ -41,7 +41,6 @@
         <maven-plugin-annotations.version>3.6.0</maven-plugin-annotations.version>
         <maven-plugin-plugin.version>3.6.0</maven-plugin-plugin.version>
         <!--Builder Core Version-->
-        <code.builder.core.version>1.0.5.RELEASE</code.builder.core.version>
         <mybatis.pageable.core.version>1.0.0.RELEASE</mybatis.pageable.core.version>
         <mybatis.enhance.core.version>1.0.0.RELEASE</mybatis.enhance.core.version>
         <mybatis.enhance.dsl.version>1.0.0.RELEASE</mybatis.enhance.dsl.version>
@@ -319,13 +318,6 @@
                 <groupId>xyz.vopen.framework</groupId>
                 <artifactId>mixmicro-boot-starter-message-push</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-
-            <!--Mixmicro-Boot Code Builder-->
-            <dependency>
-                <groupId>xyz.vopen.framework</groupId>
-                <artifactId>code-builder-core</artifactId>
-                <version>${code.builder.core.version}</version>
             </dependency>
 
             <!--Mixmicro-Boot Mybatis Pageable-->
