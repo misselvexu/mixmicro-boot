@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * the "minbox-logging" global log storage configuration
+ * the "minbox-logging" global log repository configuration
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
@@ -33,14 +33,14 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass(MixmicroLogging.class)
 public class MixmicroBootLoggingGlobalLogStorageAutoConfiguration {
   /**
-   * Instance global log memory mode storage
+   * Instance global log memory mode repository
    *
    * @return {@link MixmicroLoggingMemoryStorage}
    */
   @Bean
   @ConditionalOnProperty(
       prefix = MixmicroBootLoggingProperties.MIXMICRO_BOOT_LOGGING_PREFIX,
-      name = "global-logging-storage-away",
+      name = "global-logging-repository-away",
       havingValue = "memory",
       matchIfMissing = true)
   public MixmicroLogging globalLogging() {

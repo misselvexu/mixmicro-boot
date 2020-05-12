@@ -15,7 +15,7 @@
  *
  */
 
-package xyz.vopen.framework.logging.admin.storage;
+package xyz.vopen.framework.logging.admin.repository;
 
 import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
 import xyz.vopen.framework.logging.core.MixmicroLog;
@@ -30,7 +30,7 @@ import java.util.List;
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
-public interface LoggingStorage {
+public interface LoggingRepository {
   /**
    * Insert Global Log
    *

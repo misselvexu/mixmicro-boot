@@ -30,4 +30,4 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component
-public @interface Endpoint {}
+public @interface ApiEndpoint {}

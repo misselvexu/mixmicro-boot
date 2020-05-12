@@ -12,19 +12,19 @@ public class TestController {
 
   @GetMapping(value = "/test")
   public String test() {
-    mixmicroLogging.info("这是第一条日志内容");
-    callMethod2();
-    callMethod3();
-    return "测试日志接口";
+    mixmicroLogging.info("test log");
+    test01();
+    test02();
+    return "test result";
   }
 
-  private void callMethod2() {
+  private void test01() {
     mixmicroLogging.debug("这是第二条");
   }
 
-  private void callMethod3() {
+  private void test02() {
     try {
-      int a = 3 / 0;
+      throw new RuntimeException("模拟异常");
     } catch (Exception e) {
       mixmicroLogging.error(e.getMessage(), e);
     }

@@ -1,4 +1,4 @@
-package xyz.vopen.framework.logging.admin.storage;
+package xyz.vopen.framework.logging.admin.repository;
 
 import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
 import xyz.vopen.framework.logging.core.MixmicroLog;
@@ -9,11 +9,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * The {@link LoggingStorage} default support
+ * The {@link LoggingRepository} default support
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
-public class LoggingDefaultStorage implements LoggingStorage {
+public class LoggingDefaultRepository implements LoggingRepository {
   @Override
   public String insertGlobalLog(String requestLogId, MixmicroGlobalLog log) throws SQLException {
     return null;

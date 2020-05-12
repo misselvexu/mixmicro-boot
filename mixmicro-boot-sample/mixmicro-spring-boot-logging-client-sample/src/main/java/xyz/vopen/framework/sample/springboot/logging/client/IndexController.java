@@ -18,15 +18,15 @@ public class IndexController {
 
   @GetMapping(value = "/index")
   public String user() {
-    logging.info("访问了首页.");
-    // 制造测试异常
+    logging.info("starting index process");
     try {
-      int a = 4 / 0;
+      throw new RuntimeException("模拟执行一次");
     } catch (Exception e) {
-      logging.error("执行遇到异常.", e);
+      logging.error("异常", e);
     }
-    logging.debug("执行完成了吧？");
-    return "测试接口";
+    logging.debug("ending index process");
+
+    return "result";
   }
 
   @PostMapping(value = "/index")

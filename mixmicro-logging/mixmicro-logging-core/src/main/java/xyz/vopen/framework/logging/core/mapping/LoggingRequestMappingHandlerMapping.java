@@ -17,7 +17,7 @@
 
 package xyz.vopen.framework.logging.core.mapping;
 
-import xyz.vopen.framework.logging.core.annotation.Endpoint;
+import xyz.vopen.framework.logging.core.annotation.ApiEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -49,7 +49,7 @@ public class LoggingRequestMappingHandlerMapping extends RequestMappingHandlerMa
    */
   @Override
   protected boolean isHandler(Class<?> beanType) {
-    boolean isEndpoint = AnnotationUtils.findAnnotation(beanType, Endpoint.class) != null;
+    boolean isEndpoint = AnnotationUtils.findAnnotation(beanType, ApiEndpoint.class) != null;
     if (isEndpoint) {
       logger.info("Load Mixmicro Boot Logging Endpoint，BeanType：[{}]", beanType.getName());
     }

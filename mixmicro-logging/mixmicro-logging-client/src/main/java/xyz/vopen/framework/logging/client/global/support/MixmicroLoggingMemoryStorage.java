@@ -8,7 +8,7 @@ import org.springframework.util.ObjectUtils;
 import xyz.vopen.framework.util.StackTraceUtil;
 
 /**
- * Global log memory mode storage implementation
+ * Global log memory mode repository implementation
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */

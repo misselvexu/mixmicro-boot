@@ -18,8 +18,8 @@
 package xyz.vopen.framework.logging.admin.ui;
 
 import xyz.vopen.framework.logging.admin.LoggingAdminFactoryBean;
-import xyz.vopen.framework.logging.admin.storage.LoggingStorage;
-import xyz.vopen.framework.logging.core.annotation.Endpoint;
+import xyz.vopen.framework.logging.admin.repository.LoggingRepository;
+import xyz.vopen.framework.logging.core.annotation.ApiEndpoint;
 import xyz.vopen.framework.logging.core.response.LoggingResponse;
 import xyz.vopen.framework.logging.core.response.ServiceResponse;
 import org.slf4j.Logger;
@@ -46,7 +46,7 @@ import static java.util.Collections.singletonMap;
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  *     <p>DateTime：2019-07-26 14:17
  */
-@Endpoint
+@ApiEndpoint
 public class LoggingAdminUiEndpoint {
   /** The bean name of {@link LoggingAdminUiEndpoint} */
   public static final String BEAN_NAME = "loggingAdminUiEndpoint";
@@ -54,12 +54,12 @@ public class LoggingAdminUiEndpoint {
   static Logger logger = LoggerFactory.getLogger(LoggingAdminUiEndpoint.class);
   /** LoggingAdmin FactoryBean{@link LoggingAdminFactoryBean} */
   private LoggingAdminFactoryBean adminFactoryBean;
-  /** {@link LoggingStorage} implement class instance */
-  private LoggingStorage loggingStorage;
+  /** {@link LoggingRepository} implement class instance */
+  private LoggingRepository loggingRepository;
 
   public LoggingAdminUiEndpoint(LoggingAdminFactoryBean adminFactoryBean) {
     this.adminFactoryBean = adminFactoryBean;
-    this.loggingStorage = adminFactoryBean.getLoggingStorage();
+    this.loggingRepository = adminFactoryBean.getLoggingRepository();
   }
 
   /**
@@ -73,7 +73,7 @@ public class LoggingAdminUiEndpoint {
   public List<LoggingResponse> logs(
       @RequestParam(value = "queryCount", defaultValue = "500") int queryCount) {
     try {
-      List<LoggingResponse> loggingResponseList = loggingStorage.findTopList(queryCount);
+      List<LoggingResponse> loggingResponseList = loggingRepository.findTopList(queryCount);
       return loggingResponseList;
     } catch (Exception e) {
       logger.error(e.getMessage(), e);
@@ -90,7 +90,7 @@ public class LoggingAdminUiEndpoint {
   @ResponseBody
   public List<ServiceResponse> applications() {
     try {
-      List<ServiceResponse> serviceResponseList = loggingStorage.findAllService();
+      List<ServiceResponse> serviceResponseList = loggingRepository.findAllService();
       return serviceResponseList;
     } catch (Exception e) {
       logger.error(e.getMessage(), e);

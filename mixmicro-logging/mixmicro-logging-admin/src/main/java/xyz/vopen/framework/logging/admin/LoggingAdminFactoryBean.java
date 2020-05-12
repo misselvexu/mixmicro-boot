@@ -2,9 +2,9 @@ package xyz.vopen.framework.logging.admin;
 
 import xyz.vopen.framework.logging.admin.listener.ReportLogJsonFormatListener;
 import xyz.vopen.framework.logging.admin.listener.ReportLogStorageListener;
-import xyz.vopen.framework.logging.admin.storage.LoggingDataSourceStorage;
-import xyz.vopen.framework.logging.admin.storage.LoggingDefaultStorage;
-import xyz.vopen.framework.logging.admin.storage.LoggingStorage;
+import xyz.vopen.framework.logging.admin.repository.LoggingDataSourceRepository;
+import xyz.vopen.framework.logging.admin.repository.LoggingDefaultRepository;
+import xyz.vopen.framework.logging.admin.repository.LoggingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -21,7 +21,7 @@ import static java.util.Arrays.asList;
  * side
  *
  * <p>Register the following beans to BeanFactory{@link
- * org.springframework.beans.factory.BeanFactory}： Register {@link LoggingDataSourceStorage} bean
+ * org.springframework.beans.factory.BeanFactory}： Register {@link LoggingDataSourceRepository} bean
  * Register {@link ReportLogStorageListener} bean Register {@link ReportLogJsonFormatListener} bean
  * Register {@link LoggingEndpoint} bean
  *
@@ -37,14 +37,14 @@ public class LoggingAdminFactoryBean implements ApplicationContextAware {
   private boolean formatConsoleLogJson;
   /** spring {@link ApplicationContext} application context */
   private ApplicationContext applicationContext;
-  /** {@link LoggingStorage} default datasource support {@link LoggingDataSourceStorage} */
-  private LoggingStorage loggingStorage;
+  /** {@link LoggingRepository} default datasource support {@link LoggingDataSourceRepository} */
+  private LoggingRepository loggingRepository;
   /** {@link AdminUiSetting} setting logging admin ui config */
   private AdminUiSetting adminUiSetting;
 
-  /** init default instance {@link LoggingDefaultStorage} */
+  /** init default instance {@link LoggingDefaultRepository} */
   public LoggingAdminFactoryBean() {
-    this.loggingStorage = new LoggingDefaultStorage();
+    this.loggingRepository = new LoggingDefaultRepository();
     this.adminUiSetting = new AdminUiSetting();
   }
 
@@ -64,12 +64,12 @@ public class LoggingAdminFactoryBean implements ApplicationContextAware {
     this.formatConsoleLogJson = formatConsoleLogJson;
   }
 
-  public LoggingStorage getLoggingStorage() {
-    return loggingStorage;
+  public LoggingRepository getLoggingRepository() {
+    return loggingRepository;
   }
 
-  public void setLoggingStorage(LoggingStorage loggingStorage) {
-    this.loggingStorage = loggingStorage;
+  public void setLoggingRepository(LoggingRepository loggingRepository) {
+    this.loggingRepository = loggingRepository;
   }
 
   public AdminUiSetting getAdminUiSetting() {

@@ -15,7 +15,7 @@
  *
  */
 
-package xyz.vopen.framework.logging.admin.storage;
+package xyz.vopen.framework.logging.admin.repository;
 
 import com.alibaba.fastjson.JSON;
 import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
@@ -32,16 +32,16 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Implementation of {@link LoggingStorage} database mode
+ * Implementation of {@link LoggingRepository} database mode
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
-public class LoggingDataSourceStorage implements LoggingStorage {
-  /** The bean name of {@link LoggingDataSourceStorage} */
+public class LoggingDataSourceRepository implements LoggingRepository {
+  /** The bean name of {@link LoggingDataSourceRepository} */
   public static final String BEAN_NAME = "loggingDataSourceStorage";
 
   /** logger instance */
-  static Logger logger = LoggerFactory.getLogger(LoggingDataSourceStorage.class);
+  static Logger logger = LoggerFactory.getLogger(LoggingDataSourceRepository.class);
   /** Insert ServiceDetail SQL */
   private static final String SQL_INSERT_SERVICE_DETAILS =
       "insert into logging_service_details (lsd_id, lsd_service_id, lsd_service_ip, lsd_service_port) values (?,?,?,?)";
@@ -73,7 +73,7 @@ public class LoggingDataSourceStorage implements LoggingStorage {
   /** The Data Source {@link DataSource} save the logs to database with dataSource */
   private DataSource dataSource;
 
-  public LoggingDataSourceStorage(DataSource dataSource) {
+  public LoggingDataSourceRepository(DataSource dataSource) {
     this.dataSource = dataSource;
   }
 

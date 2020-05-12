@@ -22,7 +22,7 @@ import xyz.vopen.framework.logging.client.global.MixmicroLogging;
 import xyz.vopen.framework.logging.client.global.support.MixmicroLoggingMemoryStorage;
 
 /**
- * The global logging storage away
+ * The global logging repository away
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  * @see MixmicroLogging

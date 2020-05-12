@@ -20,7 +20,7 @@ package xyz.vopen.framework.logging.admin.listener;
 import xyz.vopen.framework.logging.admin.LoggingAdminFactoryBean;
 import xyz.vopen.framework.logging.admin.endpoint.LoggingEndpoint;
 import xyz.vopen.framework.logging.admin.event.ReportLogEvent;
-import xyz.vopen.framework.logging.admin.storage.LoggingStorage;
+import xyz.vopen.framework.logging.admin.repository.LoggingRepository;
 import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
 import xyz.vopen.framework.logging.core.LoggingClientNotice;
 import xyz.vopen.framework.logging.core.MixmicroLog;
@@ -49,12 +49,12 @@ public class ReportLogStorageListener implements SmartApplicationListener {
   static Logger logger = LoggerFactory.getLogger(ReportLogStorageListener.class);
   /** ServiceDetails IDS */
   ConcurrentMap<String, String> SERVICE_DETAIL_IDS = new ConcurrentHashMap();
-  /** Logging Storage Interface {@link LoggingStorage} */
-  private LoggingStorage loggingStorage;
+  /** Logging Storage Interface {@link LoggingRepository} */
+  private LoggingRepository loggingRepository;
 
   public ReportLogStorageListener(LoggingAdminFactoryBean adminFactoryBean) {
     Assert.notNull(adminFactoryBean, "[LoggingAdminFactoryBean] Can't be null.");
-    this.loggingStorage = adminFactoryBean.getLoggingStorage();
+    this.loggingRepository = adminFactoryBean.getLoggingRepository();
   }
 
   /**
@@ -80,7 +80,7 @@ public class ReportLogStorageListener implements SmartApplicationListener {
       if (ObjectUtils.isEmpty(serviceDetailId)) {
         // select service detail id from database
         serviceDetailId =
-            loggingStorage.selectServiceDetailId(
+            loggingRepository.selectServiceDetailId(
                 notice.getClientServiceId(),
                 notice.getClientServiceIp(),
                 notice.getClientServicePort());
@@ -88,7 +88,7 @@ public class ReportLogStorageListener implements SmartApplicationListener {
         // create new service detail
         if (ObjectUtils.isEmpty(serviceDetailId)) {
           serviceDetailId =
-              loggingStorage.insertServiceDetail(
+              loggingRepository.insertServiceDetail(
                   notice.getClientServiceId(),
                   notice.getClientServiceIp(),
                   notice.getClientServicePort());
@@ -101,14 +101,14 @@ public class ReportLogStorageListener implements SmartApplicationListener {
       // save logs
       if (!ObjectUtils.isEmpty(notice.getLoggers())) {
         for (MixmicroLog log : notice.getLoggers()) {
-          String requestLogId = loggingStorage.insertLog(serviceDetailId, log);
+          String requestLogId = loggingRepository.insertLog(serviceDetailId, log);
           // save global logs
           saveGlobalLogs(requestLogId, log.getMixmicroGlobalLogs());
         }
       }
 
       // update last report time
-      loggingStorage.updateLastReportTime(serviceDetailId);
+      loggingRepository.updateLastReportTime(serviceDetailId);
 
     } catch (Exception e) {
       logger.error(e.getMessage(), e);
@@ -128,7 +128,7 @@ public class ReportLogStorageListener implements SmartApplicationListener {
       mixmicroGlobalLogs.forEach(
           globalLog -> {
             try {
-              loggingStorage.insertGlobalLog(requestLogId, globalLog);
+              loggingRepository.insertGlobalLog(requestLogId, globalLog);
             } catch (SQLException e) {
               logger.error(e.getMessage(), e);
             }

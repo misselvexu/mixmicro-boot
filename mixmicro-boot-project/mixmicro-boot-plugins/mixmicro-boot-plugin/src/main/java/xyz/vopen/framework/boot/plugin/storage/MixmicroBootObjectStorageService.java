@@ -17,7 +17,7 @@ public interface MixmicroBootObjectStorageService {
    * @param objectName file name
    * @param bytes file byte array
    * @return {@link MixmicroBootObjectStorageResponse}
-   * @throws MixmicroBootObjectStorageException object storage exception
+   * @throws MixmicroBootObjectStorageException object repository exception
    */
   MixmicroBootObjectStorageResponse upload(String objectName, byte[] bytes)
       throws MixmicroBootObjectStorageException;
@@ -28,7 +28,7 @@ public interface MixmicroBootObjectStorageService {
    * @param objectName file name
    * @param inputStream file input stream
    * @return {@link MixmicroBootObjectStorageResponse}
-   * @throws MixmicroBootObjectStorageException object storage exception
+   * @throws MixmicroBootObjectStorageException object repository exception
    */
   MixmicroBootObjectStorageResponse upload(String objectName, InputStream inputStream)
       throws MixmicroBootObjectStorageException;
@@ -39,7 +39,7 @@ public interface MixmicroBootObjectStorageService {
    * @param objectName file name
    * @param localFile file local path
    * @return {@link MixmicroBootObjectStorageResponse}
-   * @throws MixmicroBootObjectStorageException object storage exception
+   * @throws MixmicroBootObjectStorageException object repository exception
    */
   MixmicroBootObjectStorageResponse upload(String objectName, String localFile)
       throws MixmicroBootObjectStorageException;
@@ -49,7 +49,7 @@ public interface MixmicroBootObjectStorageService {
    *
    * @param objectName file name in the object store
    * @param localFile file local path
-   * @throws MixmicroBootObjectStorageException object storage exception
+   * @throws MixmicroBootObjectStorageException object repository exception
    */
   void download(String objectName, String localFile) throws MixmicroBootObjectStorageException;
 
@@ -57,7 +57,7 @@ public interface MixmicroBootObjectStorageService {
    * delete file
    *
    * @param objectName file name in the object store
-   * @throws MixmicroBootObjectStorageException object storage exception
+   * @throws MixmicroBootObjectStorageException object repository exception
    */
   void delete(String objectName) throws MixmicroBootObjectStorageException;
 }

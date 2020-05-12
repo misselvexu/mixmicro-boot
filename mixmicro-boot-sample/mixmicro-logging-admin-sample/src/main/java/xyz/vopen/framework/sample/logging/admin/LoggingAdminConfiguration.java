@@ -3,7 +3,7 @@ package xyz.vopen.framework.sample.logging.admin;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import xyz.vopen.framework.logging.admin.LoggingAdminFactoryBean;
-import xyz.vopen.framework.logging.admin.storage.LoggingDataSourceStorage;
+import xyz.vopen.framework.logging.admin.repository.LoggingDataSourceRepository;
 
 import javax.sql.DataSource;
 
@@ -15,7 +15,7 @@ public class LoggingAdminConfiguration {
     LoggingAdminFactoryBean adminFactoryBean = new LoggingAdminFactoryBean();
     adminFactoryBean.setShowConsoleReportLog(true);
     adminFactoryBean.setFormatConsoleLogJson(true);
-    adminFactoryBean.setLoggingStorage(new LoggingDataSourceStorage(dataSource));
+    adminFactoryBean.setLoggingRepository(new LoggingDataSourceRepository(dataSource));
     return adminFactoryBean;
   }
 }

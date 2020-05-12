@@ -22,7 +22,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.io.Serializable;
 
 /**
- * Data storage delegation interface
+ * Data repository delegation interface
  *
  * <p>To integrate SpringSecurity with Mixmicro, you need to query the agent class of <code>
  * {@link UserDetails}</code> Use <code>{@link MixmicroBootDefaultStoreDelegate}</code> by default

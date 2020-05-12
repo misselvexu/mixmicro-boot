@@ -20,7 +20,7 @@ package xyz.vopen.framework.boot.autoconfigure.logging.admin;
 import xyz.vopen.framework.boot.autoconfigure.enhance.MixmicroBootMyBatisEnhanceAutoConfiguration;
 import xyz.vopen.framework.boot.autoconfigure.logging.admin.ui.MixmicroBootLoggingAdminUiAutoConfiguration;
 import xyz.vopen.framework.logging.admin.LoggingAdminFactoryBean;
-import xyz.vopen.framework.logging.admin.storage.LoggingDataSourceStorage;
+import xyz.vopen.framework.logging.admin.repository.LoggingDataSourceRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanCreationException;
@@ -35,7 +35,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
-import xyz.vopen.framework.logging.admin.storage.LoggingStorage;
+import xyz.vopen.framework.logging.admin.repository.LoggingRepository;
 
 import javax.sql.DataSource;
 
@@ -64,29 +64,29 @@ public class MixmicroBootLoggingAdminAutoConfiguration {
   }
 
   /**
-   * {@link LoggingStorage} database
+   * {@link LoggingRepository} database
    *
    * @param dataSource {@link DataSource}
-   * @return {@link LoggingDataSourceStorage}
+   * @return {@link LoggingDataSourceRepository}
    */
   @Bean
   @ConditionalOnMissingBean
-  public LoggingDataSourceStorage loggingDataSourceStorage(DataSource dataSource) {
-    return new LoggingDataSourceStorage(dataSource);
+  public LoggingDataSourceRepository loggingDataSourceStorage(DataSource dataSource) {
+    return new LoggingDataSourceRepository(dataSource);
   }
 
   /**
    * instantiation {@link LoggingAdminFactoryBean}
    *
-   * @param loggingDataSourceStorage {@link LoggingDataSourceStorage}
+   * @param loggingDataSourceStorage {@link LoggingDataSourceRepository}
    * @return LoggingAdminFactoryBean
    */
   @Bean
   @ConditionalOnMissingBean
   public LoggingAdminFactoryBean loggingAdminFactoryBean(
-      LoggingDataSourceStorage loggingDataSourceStorage) {
+      LoggingDataSourceRepository loggingDataSourceStorage) {
     LoggingAdminFactoryBean factoryBean = new LoggingAdminFactoryBean();
-    factoryBean.setLoggingStorage(loggingDataSourceStorage);
+    factoryBean.setLoggingRepository(loggingDataSourceStorage);
     factoryBean.setShowConsoleReportLog(mixmicroBootLoggingAdminProperties.isShowConsoleReportLog());
     factoryBean.setFormatConsoleLogJson(mixmicroBootLoggingAdminProperties.isFormatConsoleLogJson());
     logger.info("【LoggingAdminFactoryBean】init successfully.");

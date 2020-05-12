@@ -18,6 +18,7 @@
 package xyz.vopen.framework.logging.admin.listener;
 
 import com.alibaba.fastjson.JSON;
+import org.springframework.lang.NonNull;
 import xyz.vopen.framework.logging.admin.LoggingAdminFactoryBean;
 import xyz.vopen.framework.logging.admin.endpoint.LoggingEndpoint;
 import xyz.vopen.framework.logging.admin.event.ReportLogEvent;
@@ -52,7 +53,7 @@ public class ReportLogJsonFormatListener implements SmartApplicationListener {
    * @param event ReportLogEvent
    */
   @Override
-  public void onApplicationEvent(ApplicationEvent event) {
+  public void onApplicationEvent(@NonNull ApplicationEvent event) {
     try {
       ReportLogEvent reportLogEvent = (ReportLogEvent) event;
       if (loggingAdminFactoryBean.isShowConsoleReportLog()) {
@@ -77,7 +78,7 @@ public class ReportLogJsonFormatListener implements SmartApplicationListener {
   }
 
   @Override
-  public boolean supportsEventType(Class<? extends ApplicationEvent> eventType) {
+  public boolean supportsEventType(@NonNull Class<? extends ApplicationEvent> eventType) {
     return eventType == ReportLogEvent.class;
   }
 

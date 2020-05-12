@@ -11,7 +11,7 @@ import xyz.vopen.framework.logging.client.interceptor.web.LoggingWebInterceptor;
 import xyz.vopen.framework.logging.client.notice.LoggingNoticeListener;
 import xyz.vopen.framework.logging.client.notice.support.LoggingAdminNotice;
 import xyz.vopen.framework.logging.client.notice.support.LoggingLocalNotice;
-import xyz.vopen.framework.logging.core.annotation.Endpoint;
+import xyz.vopen.framework.logging.core.annotation.ApiEndpoint;
 import xyz.vopen.framework.logging.core.mapping.LoggingRequestMappingHandlerMapping;
 import xyz.vopen.framework.util.BeanUtils;
 
@@ -72,7 +72,7 @@ public class LoggingBeanUtils {
   }
 
   /**
-   * Register storage logging{@link ReportLogStorageListener} listener bean name is use {@link
+   * Register repository logging{@link ReportLogStorageListener} listener bean name is use {@link
    * ReportLogStorageListener#BEAN_NAME}
    *
    * @param registry {@link BeanDefinitionRegistry}
@@ -84,7 +84,7 @@ public class LoggingBeanUtils {
   }
 
   /**
-   * Register logging endpoint {@link LoggingEndpoint} Register spring MVC endpoint{@link Endpoint}
+   * Register logging endpoint {@link LoggingEndpoint} Register spring MVC endpoint{@link ApiEndpoint}
    * bean name is use {@link LoggingEndpoint#BEAN_NAME}
    *
    * @param registry {@link BeanDefinitionRegistry}

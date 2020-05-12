@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * Mixmicro Boot object storage response entity
+ * Mixmicro Boot object repository response entity
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */

@@ -17,27 +17,27 @@
 
 package xyz.vopen.framework.logging.admin.endpoint;
 
-import xyz.vopen.framework.logging.admin.event.ReportLogEvent;
-import xyz.vopen.framework.logging.core.LoggingClientNotice;
-import xyz.vopen.framework.logging.core.annotation.Endpoint;
-import xyz.vopen.framework.logging.core.response.ReportResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import xyz.vopen.framework.logging.admin.event.ReportLogEvent;
+import xyz.vopen.framework.logging.core.LoggingClientNotice;
+import xyz.vopen.framework.logging.core.annotation.ApiEndpoint;
+import xyz.vopen.framework.logging.core.response.ReportResponse;
 
 /**
  * Mixmicro Boot Logging Endpoint Controller Receive Log report Provide log analysis
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
-@Endpoint
+@ApiEndpoint
 public class LoggingEndpoint implements ApplicationContextAware {
   /** The bean name of {@link LoggingEndpoint} */
   public static final String BEAN_NAME = "loggingEndpoint";
@@ -68,11 +68,13 @@ public class LoggingEndpoint implements ApplicationContextAware {
     }
     ReportResponse response = new ReportResponse();
     response.setStatus(reportSuccess ? ReportResponse.SUCCESS : ReportResponse.ERROR);
-    return new ResponseEntity(response, HttpStatus.OK);
+
+    return ResponseEntity.ok(response);
   }
 
   @Override
-  public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+  public void setApplicationContext(@NonNull ApplicationContext applicationContext)
+      throws BeansException {
     this.applicationContext = applicationContext;
   }
 }

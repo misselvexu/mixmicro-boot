@@ -3,7 +3,7 @@ package xyz.vopen.framework.boot.plugin.storage.exception;
 import lombok.NoArgsConstructor;
 
 /**
- * Object storage exception extend from {@link RuntimeException}
+ * Object repository exception extend from {@link RuntimeException}
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */

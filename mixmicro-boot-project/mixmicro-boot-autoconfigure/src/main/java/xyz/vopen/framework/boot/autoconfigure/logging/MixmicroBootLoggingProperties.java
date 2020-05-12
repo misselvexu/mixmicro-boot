@@ -58,7 +58,7 @@ public class MixmicroBootLoggingProperties {
   private int reportIntervalSecond = 5;
   /** logging cache away */
   private LoggingCacheAway loggingCacheAway = LoggingCacheAway.memory;
-  /** global logging storage away */
+  /** global logging repository away */
   private MixmicroLoggingStorageAway mixmicroLoggingStorageAway = MixmicroLoggingStorageAway.memory;
   /** Mixmicro Boot Logging Admin Instance */
   private AdminInstance admin = new AdminInstance();
