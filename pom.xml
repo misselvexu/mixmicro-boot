@@ -17,7 +17,7 @@
         <module>mixmicro-logging</module>
 
         <!-- Samples -->
-        <module>mixmicro-boot-sample</module>
+<!--        <module>mixmicro-boot-sample</module>-->
     </modules>
 
     <groupId>xyz.vopen.framework</groupId>
