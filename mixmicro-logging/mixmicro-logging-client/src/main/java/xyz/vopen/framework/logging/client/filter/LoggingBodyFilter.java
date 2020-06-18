@@ -19,6 +19,7 @@ package xyz.vopen.framework.logging.client.filter;
 
 import xyz.vopen.framework.web.request.RequestWrapper;
 import xyz.vopen.framework.web.response.ResponseWrapper;
+import xyz.vopen.framework.web.util.HttpRequestUtil;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -49,9 +50,13 @@ public class LoggingBodyFilter implements Filter {
   @Override
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
       throws IOException, ServletException {
-    RequestWrapper requestWrapper = new RequestWrapper((HttpServletRequest) request);
-    ResponseWrapper responseWrapper = new ResponseWrapper((HttpServletResponse) response);
-    filterChain.doFilter(requestWrapper, responseWrapper);
-    responseWrapper.flushBuffer();
+    if (!HttpRequestUtil.isMultipart(request)) {
+      RequestWrapper requestWrapper = new RequestWrapper((HttpServletRequest) request);
+      ResponseWrapper responseWrapper = new ResponseWrapper((HttpServletResponse) response);
+      filterChain.doFilter(requestWrapper, responseWrapper);
+      responseWrapper.flushBuffer();
+    } else {
+      filterChain.doFilter(request, response);
+    }
   }
 }

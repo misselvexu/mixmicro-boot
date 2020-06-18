@@ -1,7 +1,8 @@
 package xyz.vopen.framework.logging.client.global;
 
-import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
+import com.alibaba.ttl.TransmittableThreadLocal;
 import org.springframework.util.ObjectUtils;
+import xyz.vopen.framework.logging.core.MixmicroGlobalLog;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class MixmicroLoggingThreadLocal {
   /** GlobalLog {@link ThreadLocal} define */
-  private static final ThreadLocal<List<MixmicroGlobalLog>> GLOBAL_LOGS = new ThreadLocal();
+  private static final TransmittableThreadLocal<List<MixmicroGlobalLog>> GLOBAL_LOGS = new TransmittableThreadLocal();
 
   /**
    * Get {@link MixmicroGlobalLog} List from ThreadLocal

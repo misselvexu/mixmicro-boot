@@ -1,6 +1,20 @@
 package xyz.vopen.framework.logging.client;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.EnvironmentAware;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.lang.Nullable;
+import org.springframework.util.Assert;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.client.RestTemplate;
 import xyz.vopen.framework.logging.client.admin.discovery.LoggingAdminDiscovery;
+import xyz.vopen.framework.logging.client.admin.discovery.support.LoggingAbstractAdminDiscovery;
+import xyz.vopen.framework.logging.client.admin.discovery.support.LoggingAppointAdminDiscovery;
+import xyz.vopen.framework.logging.client.admin.discovery.support.LoggingRegistryCenterAdminDiscovery;
 import xyz.vopen.framework.logging.client.admin.report.LoggingAdminReport;
 import xyz.vopen.framework.logging.client.admin.report.support.LoggingAdminReportSupport;
 import xyz.vopen.framework.logging.client.cache.LoggingCache;
@@ -11,19 +25,6 @@ import xyz.vopen.framework.logging.client.span.support.LoggingDefaultSpanGenerat
 import xyz.vopen.framework.logging.client.tracer.LoggingTraceGenerator;
 import xyz.vopen.framework.logging.client.tracer.support.LoggingDefaultTraceGenerator;
 import xyz.vopen.framework.logging.core.ReportAway;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.EnvironmentAware;
-import org.springframework.core.env.Environment;
-import org.springframework.lang.Nullable;
-import org.springframework.util.Assert;
-import org.springframework.util.ObjectUtils;
-import org.springframework.web.client.RestTemplate;
-import xyz.vopen.framework.logging.client.admin.discovery.support.LoggingAbstractAdminDiscovery;
-import xyz.vopen.framework.logging.client.admin.discovery.support.LoggingAppointAdminDiscovery;
-import xyz.vopen.framework.logging.client.admin.discovery.support.LoggingRegistryCenterAdminDiscovery;
 
 import java.net.InetAddress;
 import java.util.ArrayList;
@@ -91,6 +92,19 @@ public class LoggingFactoryBean
           add("/error");
         }
       };
+
+  /**
+   * Ignore the {@link HttpStatus} of not logging
+   *
+   * <p>Ignore 404 by default
+   */
+  private List<HttpStatus> ignoreHttpStatus =
+      new ArrayList() {
+        {
+          add(HttpStatus.NOT_FOUND);
+        }
+      };
+
   /** Service ID Affected by "spring.application.name" config properties */
   private String serviceId;
   /** Service Address */
@@ -266,5 +280,13 @@ public class LoggingFactoryBean
 
   public void setFormatConsoleLog(boolean formatConsoleLog) {
     this.formatConsoleLog = formatConsoleLog;
+  }
+
+  public void setIgnoreHttpStatus(List<HttpStatus> ignoreHttpStatus) {
+    this.ignoreHttpStatus = ignoreHttpStatus;
+  }
+
+  public List<HttpStatus> getIgnoreHttpStatus() {
+    return ignoreHttpStatus;
   }
 }

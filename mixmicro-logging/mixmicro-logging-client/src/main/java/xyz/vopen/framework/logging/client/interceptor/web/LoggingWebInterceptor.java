@@ -18,6 +18,11 @@
 package xyz.vopen.framework.logging.client.interceptor.web;
 
 import com.alibaba.fastjson.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.servlet.HandlerInterceptor;
 import xyz.vopen.framework.logging.client.LogThreadLocal;
 import xyz.vopen.framework.logging.client.LoggingConstant;
 import xyz.vopen.framework.logging.client.LoggingFactoryBean;
@@ -25,11 +30,6 @@ import xyz.vopen.framework.logging.client.global.MixmicroLoggingThreadLocal;
 import xyz.vopen.framework.logging.client.interceptor.LoggingAbstractInterceptor;
 import xyz.vopen.framework.logging.client.notice.LoggingNoticeEvent;
 import xyz.vopen.framework.logging.core.MixmicroLog;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.util.ObjectUtils;
-import org.springframework.web.servlet.HandlerInterceptor;
 import xyz.vopen.framework.util.StackTraceUtil;
 import xyz.vopen.framework.util.UrlUtils;
 import xyz.vopen.framework.web.util.HttpRequestUtil;
@@ -37,6 +37,7 @@ import xyz.vopen.framework.web.util.HttpRequestUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.InetAddress;
+import java.util.List;
 
 /**
  * Mixmicro Boot Logging SpringBoot Web Interceptor Start a log link
@@ -72,8 +73,9 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
       throws Exception {
-    // check is matcher ignore url
-    if (checkIgnore(HttpRequestUtil.getUri(request))) {
+    // check is matcher ignore httpStatus
+    if (checkIgnore(HttpRequestUtil.getUri(request))
+        || checkIgnoreHttpStatus(response.getStatus())) {
       return true;
     }
     MixmicroLog log = new MixmicroLog();
@@ -82,7 +84,10 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
       log.setRequestUri(HttpRequestUtil.getUri(request));
       log.setRequestMethod(request.getMethod());
       log.setRequestParam(JSON.toJSONString(HttpRequestUtil.getPathParams(request)));
-      log.setRequestBody(HttpRequestUtil.getRequestBody(request));
+      // fix multipart issues
+      if (!HttpRequestUtil.isMultipart(request)) {
+        log.setRequestBody(HttpRequestUtil.getRequestBody(request));
+      }
       log.setRequestHeaders(HttpRequestUtil.getRequestHeaders(request));
       log.setHttpStatus(response.getStatus());
       log.setStartTime(System.currentTimeMillis());
@@ -122,14 +127,19 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
     try {
       // Get Current Thread Mixmicro Boot Log Instance
       MixmicroLog log = LogThreadLocal.get();
-      if (!ObjectUtils.isEmpty(log)) {
-        // set exception stack
-        if (!ObjectUtils.isEmpty(ex)) {
-          logger.debug("Request Have Exception，Execute Update HttpStatus.");
-          log.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-          log.setExceptionStack(StackTraceUtil.getStackTrace(ex));
-        }
-        log.setHttpStatus(response.getStatus());
+
+      if (ObjectUtils.isEmpty(log) || this.checkIgnore(HttpRequestUtil.getUri(request))) {
+        return;
+      }
+      log.setHttpStatus(response.getStatus());
+      // set exception stack
+      if (!ObjectUtils.isEmpty(ex)) {
+        logger.debug("Request Have Exception，Execute Update HttpStatus.");
+        log.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        log.setExceptionStack(StackTraceUtil.getStackTrace(ex));
+      }
+
+      if (!this.checkIgnoreHttpStatus(log.getHttpStatus())) {
         log.setEndTime(System.currentTimeMillis());
         log.setTimeConsuming(log.getEndTime() - log.getStartTime());
         log.setResponseHeaders(HttpRequestUtil.getResponseHeaders(response));
@@ -200,5 +210,17 @@ public class LoggingWebInterceptor extends LoggingAbstractInterceptor
    */
   private boolean checkIgnore(String uri) {
     return UrlUtils.isIgnore(factoryBean.getIgnorePaths(), uri);
+  }
+
+  /**
+   * Check whether to filter the request of the specified {@link HttpStatus}
+   *
+   * @param httpStatusCode {@link HttpServletResponse#getStatus()}
+   * @return
+   */
+  private boolean checkIgnoreHttpStatus(int httpStatusCode) {
+    HttpStatus httpStatus = HttpStatus.valueOf(httpStatusCode);
+    List<HttpStatus> ignoreHttpStatus = factoryBean.getIgnoreHttpStatus();
+    return ignoreHttpStatus.contains(httpStatus);
   }
 }

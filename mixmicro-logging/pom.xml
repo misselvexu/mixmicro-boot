@@ -25,8 +25,8 @@
     </modules>
 
     <properties>
-        <revision>1.0.0.RELEASE</revision>
-        <mixmicro.framework.version>2020.04.RELEASE</mixmicro.framework.version>
+        <revision>1.0.1.RELEASE</revision>
+        <mixmicro.framework.version>2020.06.RELEASE</mixmicro.framework.version>
 
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <jdk.version>1.8</jdk.version>
