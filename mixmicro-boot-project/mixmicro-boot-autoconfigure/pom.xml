@@ -234,5 +234,48 @@
             <optional>true</optional>
         </dependency>
 
+        <!--Mixmicro-Boot Sequence Plugin-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-plugin-sequence</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--mongo-->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-core-mongo-client</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- tools -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mixmicro-boot-tools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>application.properties</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
 </project>

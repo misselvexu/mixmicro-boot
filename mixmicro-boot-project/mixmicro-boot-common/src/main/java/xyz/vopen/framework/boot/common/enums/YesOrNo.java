@@ -22,7 +22,6 @@ import lombok.Getter;
  * Yes Or No 枚举定义
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
- *     <p>DateTime：2019-03-14 16:26
  */
 @Getter
 public enum YesOrNo {

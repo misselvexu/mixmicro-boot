@@ -34,6 +34,7 @@
         <module>mixmicro-boot-plugin-message-push</module>
         <module>mixmicro-boot-plugin-rate-limiter</module>
         <module>mixmicro-boot-plugin-mail</module>
+        <module>mixmicro-boot-plugin-sequence</module>
     </modules>
 
 </project>

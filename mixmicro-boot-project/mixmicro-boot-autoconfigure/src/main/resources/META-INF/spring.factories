@@ -19,4 +19,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   xyz.vopen.framework.boot.autoconfigure.mail.MixmicroBootMailAutoConfiguration,\
   xyz.vopen.framework.boot.autoconfigure.logging.MixmicroBootLoggingAutoConfiguration,\
   xyz.vopen.framework.boot.autoconfigure.logging.admin.MixmicroBootLoggingAdminAutoConfiguration,\
-  xyz.vopen.framework.boot.autoconfigure.logging.admin.MixmicroBootLoggingAdminSecurityAutoConfiguration
+  xyz.vopen.framework.boot.autoconfigure.logging.admin.MixmicroBootLoggingAdminSecurityAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.sequence.MixmicroBootSequenceAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.mongo.MixmicroBootMongoClientSettingsAutoConfiguration,\
+  xyz.vopen.framework.boot.autoconfigure.tools.MixmicroBootToolsAutoConfiguration

@@ -40,7 +40,7 @@ import org.springframework.util.ObjectUtils;
 import java.util.*;
 
 /**
- * 配置fastjson作为数据返回转换 如果没有配置spring.http.converters.preferred-json-mapper参数则使用该配置进行转换数据返回
+ * 配置fastjson作为数据返回转换 如果没有配置spring.mvc.converters.preferred-json-mapper参数则使用该配置进行转换数据返回
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  */
@@ -48,7 +48,7 @@ import java.util.*;
 @ConditionalOnClass({FastJsonHttpMessageConverter.class, ConfigurationBuilder.class})
 @AutoConfigureBefore(HttpMessageConvertersAutoConfiguration.class)
 @ConditionalOnProperty(
-    prefix = "spring.http.converters",
+    prefix = "spring.mvc.converters",
     value = {"preferred-json-mapper"},
     havingValue = "fastJson",
     matchIfMissing = true)

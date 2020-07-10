@@ -17,9 +17,6 @@
 
 package xyz.vopen.framework.boot.autoconfigure.logging;
 
-import xyz.vopen.framework.logging.client.LoggingFactoryBean;
-import xyz.vopen.framework.logging.client.admin.discovery.LoggingAdminDiscovery;
-import xyz.vopen.framework.logging.client.admin.report.LoggingReportScheduled;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
@@ -35,6 +32,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.util.ObjectUtils;
+import xyz.vopen.framework.logging.client.LoggingFactoryBean;
+import xyz.vopen.framework.logging.client.admin.discovery.LoggingAdminDiscovery;
+import xyz.vopen.framework.logging.client.admin.report.LoggingReportScheduled;
+import xyz.vopen.framework.logging.spring.context.annotation.client.EnableLoggingClient;
 
 import java.util.List;
 
@@ -47,7 +48,7 @@ import static xyz.vopen.framework.boot.autoconfigure.logging.MixmicroBootLogging
  *     <p>DateTime：2019-07-15 18:33
  */
 @Configuration
-@ConditionalOnClass(LoggingFactoryBean.class)
+@ConditionalOnClass({LoggingFactoryBean.class, EnableLoggingClient.class})
 @EnableConfigurationProperties(MixmicroBootLoggingProperties.class)
 @AutoConfigureAfter(WebMvcAutoConfiguration.class)
 @ConditionalOnWebApplication
@@ -64,7 +65,7 @@ public class MixmicroBootLoggingAutoConfiguration {
   /** logger instance */
   static Logger logger = LoggerFactory.getLogger(MixmicroBootLoggingAutoConfiguration.class);
   /** Mixmicro Boot Logging Properties */
-  private MixmicroBootLoggingProperties mixmicroBootLoggingProperties;
+  private final MixmicroBootLoggingProperties mixmicroBootLoggingProperties;
 
   public MixmicroBootLoggingAutoConfiguration(MixmicroBootLoggingProperties mixmicroBootLoggingProperties) {
     this.mixmicroBootLoggingProperties = mixmicroBootLoggingProperties;
@@ -83,6 +84,7 @@ public class MixmicroBootLoggingAutoConfiguration {
       ObjectProvider<List<LoggingFactoryBeanCustomizer>> customizerObjectProvider) {
     LoggingFactoryBean factoryBean = new LoggingFactoryBean();
     factoryBean.setIgnorePaths(mixmicroBootLoggingProperties.getIgnorePaths());
+    factoryBean.setIgnoreHttpStatus(mixmicroBootLoggingProperties.getIgnoreHttpStatus());
     factoryBean.setReportAway(mixmicroBootLoggingProperties.getReportAway());
     factoryBean.setNumberOfRequestLog(mixmicroBootLoggingProperties.getReportNumberOfRequestLog());
     factoryBean.setReportInitialDelaySecond(mixmicroBootLoggingProperties.getReportInitialDelaySecond());

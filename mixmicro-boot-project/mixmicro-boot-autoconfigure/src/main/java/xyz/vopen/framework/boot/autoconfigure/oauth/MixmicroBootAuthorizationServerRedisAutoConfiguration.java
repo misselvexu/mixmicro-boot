@@ -50,10 +50,10 @@ import static xyz.vopen.framework.boot.autoconfigure.oauth.MixmicroBootOauthProp
 @ConditionalOnClass({MixmicroBootAuthorizationServerConfiguration.class})
 @ConditionalOnProperty(prefix = MIXMICRO_BOOT_OAUTH_PREFIX, name = "away", havingValue = "redis")
 @AutoConfigureAfter(RedisAutoConfiguration.class)
-public class MixmicroBootAuthorizationServerRedisAutoConfiguration
-    extends MixmicroBootAuthorizationServerAutoConfiguration {
+public class MixmicroBootAuthorizationServerRedisAutoConfiguration extends MixmicroBootAuthorizationServerAutoConfiguration {
+
   /** redis connection factory */
-  private RedisConnectionFactory redisConnectionFactory;
+  private final RedisConnectionFactory redisConnectionFactory;
 
   /**
    * constructor instance redis connection factory
@@ -88,7 +88,8 @@ public class MixmicroBootAuthorizationServerRedisAutoConfiguration
                     .authorizedGrantTypes(client.getGrantTypes())
                     .scopes(client.getScopes())
                     .resourceIds(client.getResourceId())
-                    .accessTokenValiditySeconds(client.getAccessTokenValiditySeconds()));
+                    .accessTokenValiditySeconds(client.getAccessTokenValiditySeconds())
+                    .refreshTokenValiditySeconds(client.getRefreshTokenValiditySeconds()));
   }
 
   /**

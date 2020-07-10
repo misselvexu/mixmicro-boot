@@ -88,8 +88,19 @@ public class MixmicroBootOauthProperties {
     private String[] scopes = new String[] {"api"};
     /** oauth2 application resource id default value is "api" */
     private String[] resourceId = new String[] {"api"};
-    /** oauth2 access token validity seconds default value is 7200 second */
-    private int accessTokenValiditySeconds = 7200;
+
+    /**
+     * oauth2 access token validity seconds
+     * default value is 2 hours (7200 second)
+     */
+    private int accessTokenValiditySeconds = 60 * 60 * 2;
+
+    /**
+     * oauth2 refresh token validity seconds
+     * <p>
+     * The default value is 30 days（2592000 seconds）
+     */
+    private int refreshTokenValiditySeconds = 60 * 60 * 24 * 30;
   }
 
   /** 自定义Jwt相关的配置 */

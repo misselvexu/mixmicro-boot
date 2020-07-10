@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.util.StringUtils;
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
@@ -24,6 +23,7 @@ import springfox.documentation.swagger2.web.Swagger2Controller;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static xyz.vopen.framework.boot.autoconfigure.swagger.SwaggerProperties.MIXMICRO_BOOT_SWAGGER_PREFIX;
 
@@ -32,9 +32,7 @@ import static xyz.vopen.framework.boot.autoconfigure.swagger.SwaggerProperties.M
  * 通过@Import导入Swagger原本配置类
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
- *     <p>DateTime：2019-03-16 23:41
  */
-@Configuration
 @EnableConfigurationProperties(SwaggerProperties.class)
 @ConditionalOnClass({
   SwaggerCommonConfiguration.class,
@@ -48,10 +46,16 @@ import static xyz.vopen.framework.boot.autoconfigure.swagger.SwaggerProperties.M
     matchIfMissing = true)
 @Import({Swagger2DocumentationConfiguration.class, BeanValidatorPluginsConfiguration.class})
 public class MixmicroBootSwaggerAutoConfiguration {
+
+  private static final String AUTHORIZATION_SCOPE = "global";
+
+  private static final String AUTHORIZATION_SCOPE_DESCRIPTION = "accessEverything";
+
   /** swagger相关属性配置 */
-  private SwaggerProperties swaggerProperties;
+  private final SwaggerProperties swaggerProperties;
+
   /** spring bean factory */
-  private BeanFactory beanFactory;
+  private final BeanFactory beanFactory;
 
   public MixmicroBootSwaggerAutoConfiguration(
       SwaggerProperties swaggerProperties, BeanFactory beanFactory) {
@@ -87,17 +91,14 @@ public class MixmicroBootSwaggerAutoConfiguration {
    * @return ApiInfo实例
    */
   public ApiInfo apiInfo() {
+    Contact contact = this.convertContact(swaggerProperties.getContact());
     return new ApiInfoBuilder()
         .title(swaggerProperties.getTitle())
         .description(swaggerProperties.getDescription())
         .version(swaggerProperties.getVersion())
         .license(swaggerProperties.getLicense())
         .licenseUrl(swaggerProperties.getLicenseUrl())
-        .contact(
-            new Contact(
-                swaggerProperties.getContact().getName(),
-                swaggerProperties.getContact().getWebsite(),
-                swaggerProperties.getContact().getEmail()))
+        .contact(contact)
         .build();
   }
 
@@ -131,12 +132,23 @@ public class MixmicroBootSwaggerAutoConfiguration {
    * @return SecurityReference arrays
    */
   private List<SecurityReference> defaultAuth() {
-    AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
-    AuthorizationScope[] authorizationScopes = new AuthorizationScope[] {authorizationScope};
-    return Collections.singletonList(
+    AuthorizationScope authorizationScope = new AuthorizationScope(AUTHORIZATION_SCOPE, AUTHORIZATION_SCOPE_DESCRIPTION);
+    AuthorizationScope[] authorizationScopes = Stream.of(authorizationScope).toArray(AuthorizationScope[]::new);
+    SecurityReference securityReference =
         SecurityReference.builder()
             .reference(swaggerProperties.getAuthorization().getName())
             .scopes(authorizationScopes)
-            .build());
+            .build();
+    return Collections.singletonList(securityReference);
+  }
+
+  /**
+   * Convert {@link SwaggerProperties.Contact} to {@link Contact}
+   *
+   * @param contact The {@link SwaggerProperties.Contact} instance
+   * @return {@link Contact} instance
+   */
+  private Contact convertContact(SwaggerProperties.Contact contact) {
+    return new Contact(contact.getName(), contact.getWebsite(), contact.getEmail());
   }
 }

@@ -22,7 +22,6 @@ import lombok.Getter;
  * SpringSecurity 用户存储方式
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
- *     <p>DateTime：2019-03-14 15:43
  */
 @Getter
 public enum SecurityAway {

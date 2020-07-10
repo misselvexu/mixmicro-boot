@@ -36,7 +36,6 @@ import java.util.List;
  * Mixmicro Boot OAuth Memory Away Support
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
- *     <p>DateTime：2019-03-14 16:53
  */
 @Configuration
 @ConditionalOnClass(MixmicroBootAuthorizationServerConfiguration.class)
@@ -73,7 +72,8 @@ public class MixmicroBootAuthorizationMemoryServerAutoConfiguration
                     .authorizedGrantTypes(client.getGrantTypes())
                     .scopes(client.getScopes())
                     .resourceIds(client.getResourceId())
-                    .accessTokenValiditySeconds(client.getAccessTokenValiditySeconds()));
+                    .accessTokenValiditySeconds(client.getAccessTokenValiditySeconds())
+                    .refreshTokenValiditySeconds(client.getRefreshTokenValiditySeconds()));
   }
 
   /**

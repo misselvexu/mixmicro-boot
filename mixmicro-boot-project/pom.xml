@@ -19,9 +19,11 @@
         <module>mixmicro-boot-dependencies</module>
         <module>mixmicro-boot-parent</module>
         <module>mixmicro-boot-autoconfigure</module>
+        <module>mixmicro-boot-cores</module>
         <module>mixmicro-boot-starters</module>
         <module>mixmicro-boot-common</module>
         <module>mixmicro-boot-plugins</module>
+        <module>mixmicro-boot-tools</module>
     </modules>
 
 </project>

@@ -18,12 +18,15 @@
 package xyz.vopen.framework.boot.autoconfigure.logging;
 
 import lombok.Data;
-import xyz.vopen.framework.logging.core.ReportAway;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import xyz.vopen.framework.logging.client.admin.discovery.lb.LoadBalanceStrategy;
 import xyz.vopen.framework.logging.client.admin.discovery.lb.support.RandomWeightedStrategy;
 import xyz.vopen.framework.logging.client.admin.discovery.lb.support.SmoothWeightedRoundRobinStrategy;
+import xyz.vopen.framework.logging.core.ReportAway;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static xyz.vopen.framework.boot.autoconfigure.logging.MixmicroBootLoggingProperties.MIXMICRO_BOOT_LOGGING_PREFIX;
 
@@ -33,7 +36,6 @@ import static xyz.vopen.framework.boot.autoconfigure.logging.MixmicroBootLogging
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  *     <p>DateTime：2019-07-15 22:29
  */
-@Configuration
 @ConfigurationProperties(prefix = MIXMICRO_BOOT_LOGGING_PREFIX)
 @Data
 public class MixmicroBootLoggingProperties {
@@ -44,6 +46,15 @@ public class MixmicroBootLoggingProperties {
   private String[] loggingPathPrefix = new String[] {"/**"};
   /** Ignore path array */
   private String[] ignorePaths;
+
+  /** Ignore the {@link HttpStatus} of not logging */
+  private List<HttpStatus> ignoreHttpStatus =
+      new ArrayList() {
+        {
+          add(HttpStatus.NOT_FOUND);
+        }
+      };
+
   /** Format console log JSON */
   private boolean formatConsoleLogJson = false;
   /** show console log */

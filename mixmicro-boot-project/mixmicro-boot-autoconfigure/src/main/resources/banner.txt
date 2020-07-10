@@ -6,4 +6,4 @@
 /_/  /_/_/_/|_/_/ /_/ /_/_/\___/_/   \____/ /_/
 
 :: Based On Spring Boot Version : ${spring-boot.formatted-version} ::
-:: Mixmicro Boot Version : 2020.04.RELEASE ::
+:: Mixmicro Boot Version : ${mixmicro.boot.version} ::
