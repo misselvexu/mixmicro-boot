@@ -6,7 +6,7 @@
 
     <groupId>xyz.vopen.framework</groupId>
     <artifactId>mixmicro-boot-sample</artifactId>
-    <version>2020.04.RELEASE</version>
+    <version>2020.07.RELEASE</version>
     <packaging>pom</packaging>
 
     <name>Mixmicro+ Boot Samples </name>
@@ -31,7 +31,7 @@
             <dependency>
                 <groupId>xyz.vopen.framework</groupId>
                 <artifactId>mixmicro-boot-dependencies</artifactId>
-                <version>2020.04.RELEASE</version>
+                <version>2020.07.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

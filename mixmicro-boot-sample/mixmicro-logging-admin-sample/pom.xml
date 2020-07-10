@@ -5,7 +5,7 @@
     <parent>
         <groupId>xyz.vopen.framework</groupId>
         <artifactId>mixmicro-boot-sample</artifactId>
-        <version>2020.04.RELEASE</version>
+        <version>2020.07.RELEASE</version>
         <relativePath>../</relativePath>
     </parent>
 
