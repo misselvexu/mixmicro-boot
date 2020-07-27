@@ -21,21 +21,8 @@
       <h2 class="subtitle" v-if="version" v-text="`当前版本 ${version}`" />
       <div class="content">
         <p>
-          Mixmicro Logging Admin 是分布式链路日志组件Logging的管理端界面应用程序。
+          Mixmicro Logging
         </p>
-        <p>
-          可以查看各个Logging业务组件的上报情况，分析出每条链路的耗时、调用频率等信息。<br/>
-          1. 可查看每条链路日志详情（请求参数、头信息、响应内容、状态码等，详见文档.）<br/>
-          2. 可查看当前上报日志的业务服务组件列表（可查看最后一次上报日志的时间）<br/>
-          3. 可分析出实时请求总数、耗时最大的请求地址等<br/>
-        </p>
-        <div class="about-links">
-          <a class="button is-primary is-outlined"
-             :href="`${documentationBaseUrl}`" target="_blank"
-          >
-            <font-awesome-icon size="lg" icon="book" />&nbsp;使用文档
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -47,11 +34,6 @@
       // eslint-disable-next-line no-undef
       version: __PROJECT_VERSION__
     }),
-    computed: {
-      documentationBaseUrl() {
-        return `http://apiboot.minbox.io/zh-cn/docs/api-boot-logging-admin.html`;
-      }
-    },
     install({viewRegistry}) {
       viewRegistry.addView({
         path: '/about',
