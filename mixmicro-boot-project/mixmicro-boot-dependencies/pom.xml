@@ -17,7 +17,7 @@
 
     <properties>
         <main.basedir>${basedir}/../..</main.basedir>
-        <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
+        <spring.boot.version>2.2.10.RELEASE</spring.boot.version>
 
         <mixmicro.framework.version>2020.09.RELEASE</mixmicro.framework.version>
         <mixmicro-logging.version>1.0.1.RELEASE</mixmicro-logging.version>
