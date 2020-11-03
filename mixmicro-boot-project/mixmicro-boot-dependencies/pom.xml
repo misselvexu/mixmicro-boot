@@ -33,7 +33,7 @@
         <alibaba.oss.version>2.8.3</alibaba.oss.version>
         <aliyun.sdk.core.version>4.2.0</aliyun.sdk.core.version>
         <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
-        <quartz.version>2.3.1</quartz.version>
+        <quartz.version>2.3.2</quartz.version>
         <spring.tx.version>5.2.3.RELEASE</spring.tx.version>
         <jpush-client.version>3.3.11</jpush-client.version>
         <maven-plugin-api.version>3.6.1</maven-plugin-api.version>
