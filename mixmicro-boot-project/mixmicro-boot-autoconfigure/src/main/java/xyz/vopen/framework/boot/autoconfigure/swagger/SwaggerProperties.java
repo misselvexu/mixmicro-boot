@@ -27,7 +27,7 @@ public class SwaggerProperties {
   /** 文档描述 */
   private String description = "Integrate Swagger Plugin";
   /** 文档版本号 */
-  private String version = "2020.07.RELEASE";
+  private String version = "2020.10.RELEASE";
   /** 文档版权 */
   private String license = "Mixmicro+ Boot";
   /** 文档版权路径 */

@@ -44,7 +44,7 @@ If you want to build with the regular `mvn` command, you will need [Maven v3.5.0
        <dependencies>
            <groupId>xyz.vopen.framework</groupId>
            <artifactId>mixmicro-boot-dependencies</artifactId>
-           <version>2020.07.RELEASE</version>
+           <version>2020.10.RELEASE</version>
            <scope>import</scope>
            <type>pom</type>
        </dependencies>
